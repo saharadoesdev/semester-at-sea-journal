@@ -75,6 +75,10 @@ export default function Map() {
         center={position}
         zoom={2}
         style={{ height: "100vh", width: "100%" }}
+        minZoom={3}
+        maxZoom={9}
+        scrollWheelZoom={false}
+        maxBounds={L.latLngBounds(L.latLng(-50, -25), L.latLng(80, 180))}   // need to experiment with these
         >
         <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"

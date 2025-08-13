@@ -3,10 +3,10 @@ import styles from "./page.module.css";
 import MapContainer from '../components/MapContainer';
 
 export default function Home() {
-  return (
+  return (<>
+      <MapContainer />
     <div className={styles.page}>
       <h1>Welcome to My Voyage!</h1>
-      <MapContainer />
       {/* dummy JournalCard components will go here */}
       {/* <main className={styles.main}>
         <Image
@@ -95,5 +95,6 @@ export default function Home() {
         </a>
       </footer> */}
     </div>
+    </>
   );
 }
