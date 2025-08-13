@@ -1,13 +1,18 @@
 // import Image from "next/image";
 import styles from "./page.module.css";
-import MapContainer from '../components/MapContainer';
+import MapDynamicWrapper from '../components/MapDynamicWrapper';
 
 export default function Home() {
   return (<>
-      <MapContainer />
+      <MapDynamicWrapper />
     <div className={styles.page}>
       <h1>Welcome to My Voyage!</h1>
-      {/* dummy JournalCard components will go here */}
+      <p>Explore the world with me as I document my travels on my Semester at Sea journey.</p>
+      
+      <div className={styles.journalCards}>
+        {/* dummy JournalCard components will go here */}
+      </div>
+
       {/* <main className={styles.main}>
         <Image
           className={styles.logo}
