@@ -1,0 +1,36 @@
+.main-header {
+  background-color: #1f3351; /* semester at sea's blue */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.logo { /* i can replace this later when i add an image */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  /* color: #fff; */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #ffd700; /* gold/yellow on hover */
+  color: #fb6962; /* semester at sea's orange, idk if i'll use gold or orange */
+}
