@@ -1,0 +1,17 @@
+.mapContainer {
+  width: 100vw;
+  height: calc(100vh - 64px); /* 64px = header height, adjust as needed */
+  /* position: relative; */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  z-index: 1;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}

@@ -6,6 +6,7 @@ import { GeoJSON } from "react-leaflet";
 import { useState, useEffect } from "react";
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import styles from "./MapContainer.module.css";
 
 export default function Map() {
   const position = [20, 0]; // Initial center of the map
@@ -69,28 +70,30 @@ export default function Map() {
   }
 
   return (
-    <MapContainer
-      center={position}
-      zoom={2}
-      style={{ height: "100vh", width: "100%" }}
-    >
-      <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-        attribution="&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-      />
-
-      {geoJsonData && (
-        <GeoJSON
-          data={geoJsonData}
-          style={countryStyle}
-          onEachFeature={onEachCountry}
+    <div className={styles.mapContainer}>
+        <MapContainer
+        center={position}
+        zoom={2}
+        style={{ height: "100vh", width: "100%" }}
+        >
+        <TileLayer
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            attribution="&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
         />
-      )}
-      
-      <Marker position={currentShipPosition} icon={shipIcon}>
-        <Popup>My current location! Heading to Ghana next.</Popup>
-      </Marker>
-    </MapContainer>
+
+        {geoJsonData && (
+            <GeoJSON
+            data={geoJsonData}
+            style={countryStyle}
+            onEachFeature={onEachCountry}
+            />
+        )}
+        
+        <Marker position={currentShipPosition} icon={shipIcon}>
+            <Popup>My current location! Heading to Ghana next.</Popup>
+        </Marker>
+        </MapContainer>
+    </div>
   );
 }
 
