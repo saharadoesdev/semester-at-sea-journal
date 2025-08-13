@@ -1,68 +1,74 @@
 [
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  },
-  {
-    "city": "",
-    "arrivalDate": "",
-    "departureDate": "",
-    "coords": []
-  }
+    {
+        "city": "Ijmuiden, Netherlands",
+        "arrivalDate": "2025-08-31T08:00+02:00",
+        "departureDate": "2025-09-09T20:00+02:00",
+        "coords": [52.4602, 4.6126]
+    },
+    {
+        "city": "Nantes, France",
+        "arrivalDate": "2025-09-15T11:30+02:00",
+        "departureDate": "2025-09-18T14:30+02:00",
+        "coords": [47.2184, -1.5536]
+    },
+    {
+        "city": "Malaga, Spain",
+        "arrivalDate": "2025-09-22T08:00+02:00",
+        "departureDate": "2025-09-25T18:00+02:00",
+        "coords": [36.7213, -4.4214]
+    },
+    {
+        "city": "Casablanca, Morocco",
+        "arrivalDate": "2025-09-28T08:00+01:00",
+        "departureDate": "2025-10-03T18:00+01:00",
+        "coords": [33.5731, -7.5898]
+    },
+    {
+        "city": "Tema, Ghana",
+        "arrivalDate": "2025-10-13T08:00+00:00",
+        "departureDate": "2025-10-15T18:00+00:00",
+        "coords": [5.669, -0.0166]
+    },
+    {
+        "city": "Takoradi, Ghana",
+        "arrivalDate": "2025-10-16T08:00+00:00",
+        "departureDate": "2025-10-17T18:00+00:00",
+        "coords": [4.9045, -1.7591]
+    },
+    {
+        "city": "Cape Town, South Africa",
+        "arrivalDate": "2025-10-26T08:00+02:00",
+        "departureDate": "2025-10-31T18:00+02:00",
+        "coords": [-33.9249, 18.4241]
+    },
+    {
+        "city": "Port Louis, Mauritius",
+        "arrivalDate": "2025-11-08T08:00+04:00",
+        "departureDate": "2025-11-10T18:00+04:00",
+        "coords": [-20.1609, 57.5012]
+    },
+    {
+        "city": "Kochi, India",
+        "arrivalDate": "2025-11-18T08:00+05:30",
+        "departureDate": "2025-11-23T15:00+05:30",
+        "coords": [9.9312, 76.2673]
+    },
+    {
+        "city": "Hong Kong, Hong Kong",
+        "arrivalDate": "2025-12-10T08:00+08:00",
+        "departureDate": "2025-12-15T18:00+08:00",
+        "coords": [22.3193, 114.1694]
+    },
+    {
+        "city": "Ho Chi Minh City, Vietnam",
+        "arrivalDate": "2025-12-01T12:00+07:00",
+        "departureDate": "2025-12-06T21:00+07:00",
+        "coords": [10.7769, 106.7009]
+    },
+    {
+        "city": "Bangkok, Thailand",
+        "arrivalDate": "2025-12-22T08:00+07:00",
+        "departureDate": "2025-12-24T22:00+07:00",
+        "coords": [13.7563, 100.5018]
+    }
 ]
