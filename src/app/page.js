@@ -1,6 +1,7 @@
 // import Image from "next/image";
 import styles from "./page.module.css";
 import MapDynamicWrapper from '../components/MapDynamicWrapper';
+import JournalCard from '../components/JournalCard';
 
 export default function Home() {
   return (<>
@@ -11,6 +12,12 @@ export default function Home() {
       
       <div className={styles.journalCards}>
         {/* dummy JournalCard components will go here */}
+      </div>
+
+      <div className={styles.JournalCards}>
+        <JournalCard />
+        <JournalCard />
+        <JournalCard />
       </div>
 
       {/* <main className={styles.main}>

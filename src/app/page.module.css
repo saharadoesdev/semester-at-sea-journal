@@ -165,3 +165,11 @@ a.secondary {
     filter: invert();
   }
 }
+
+.JournalCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 56px;
+}

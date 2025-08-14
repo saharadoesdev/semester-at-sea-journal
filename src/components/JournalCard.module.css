@@ -1,0 +1,38 @@
+.JournalCard h5 {
+  font-size: 1.25rem;
+}
+
+.JournalCard h6 {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.JournalCard {
+    color: #000;
+    background-color: #DBE6F7;
+    padding-bottom: 20px;
+    box-shadow: 0 15px 25px #817c7c33;
+    font-size: medium;
+    border-radius: 14px;
+    backdrop-filter: blur(2px);
+    text-align: center;
+    margin-bottom: 30px;
+    height: 450px;
+}
+
+.JournalCard img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.JournalCard {
+  width: 300px;
+}
+
+.JournalCard h6,
+.JournalCard h5 {
+  align-content: center;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
