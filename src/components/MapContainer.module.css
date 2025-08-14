@@ -1,6 +1,6 @@
 .mapContainer {
   width: 100vw;
-  height: calc(100vh - 64px); /* 64px = header height, adjust as needed */
+  /* height: calc(100vh - 64px - 80px); 64px = header height, 80px for extra space */
   /* position: relative; */
   /* left: 50%;
   right: 50%;
@@ -9,6 +9,7 @@
   max-width: 100vw;
   z-index: 1;
   margin-top: 64px; /* push map below header */
+  margin-bottom: 30px;
 }
 
 .leaflet-container {

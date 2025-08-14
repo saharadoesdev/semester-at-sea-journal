@@ -9,7 +9,7 @@ export default function Home() {
     <div className={styles.page}>
       <h1>Welcome to My Voyage!</h1>
       <p>Explore the world with me as I document my travels on my Semester at Sea journey.</p>
-      
+      <h2>Latest Journal Entries</h2>
       <div className={styles.journalCards}>
         {/* dummy JournalCard components will go here */}
       </div>
