@@ -1,0 +1,118 @@
+"use client";
+import { useState } from "react";
+
+const PostEditor = ({ initialData = {}, onSubmit }) => {
+  const [post, setPost] = useState({
+    title: initialData.title || "",
+    slug: initialData.slug || "",
+    content: initialData.content || "",
+    displayDate: initialData.displayDate || "",
+    imageURLs: initialData.imageURLs || [],
+    tags: initialData.tags || [],
+  });
+
+  const [imageFiles, setImageFiles] = useState([]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPost((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleImageUpload = (event) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setImageFiles((prev) => [...prev, ...event.target.files]);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    onSubmit(post, imageFiles);
+
+    // let imageURL = post.imageURL;
+
+    // if (imageFile) {
+    //   const { data, error } = await supabase.storage
+    //     .from("images") // your bucket name
+    //     .upload(`public/${Date.now()}_${imageFile.name}`, imageFile);
+    //   if (error) {
+    //     alert("Image upload failed!");
+    //     return;
+    //   }
+
+    //   const { data: publicUrlData } = supabase.storage
+    //     .from("images")
+    //     .getPublicUrl(data.path);
+
+    //   imageURL = publicUrlData.publicUrl;
+    // }
+
+    // await supabase
+    //   .from("Posts")
+    //   .insert({
+    //     title: post.title,
+    //     userID: userID,
+    //     content: post.content,
+    //     imageURL: imageURL,
+    //     videoURL: post.videoURL,
+    //     flag: post.flag,
+    //     referencedPostID: post.referencedPostID ? post.referencedPostID : null,
+    //   })
+    //   .select();
+
+    // router.push("/admin");
+  };
+
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title</label> <br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={post.title}
+          onChange={handleChange}
+        />
+        <br /><br />
+
+        <label htmlFor="content">Content (optional)</label>
+        <br />
+        <textarea
+          rows="5"
+          cols="50"
+          id="content"
+          name="content"
+          value={post.content}
+          onChange={handleChange}
+        ></textarea>
+        <br /><br />
+        
+        <span>Upload images: </span>
+        <br />
+        <input type="file" accept="image/*" onChange={handleImageUpload} multiple />
+        <br /><br />
+        
+        <label htmlFor="flag">Flag (optional)</label>
+        <br />
+        <select id="flag" name="flag" value={post.flag} onChange={handleChange}>
+          <option value="">None</option>
+          <option value="Question">Question</option>
+          <option value="Opinion">Opinion</option>
+          <option value="Discussion">Discussion</option>
+          <option value="Advice">Advice</option>
+        </select>
+        <br /><br />
+
+        <input type="submit" value="Post" />
+      </form>
+    </div>
+  );
+};
+
+export default PostEditor;

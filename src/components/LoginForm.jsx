@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { supabase } from "@/utils/supabase/client";
+import { createClient } from "@/utils/supabase/client";
+const supabase = createClient();
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
