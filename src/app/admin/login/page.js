@@ -1,0 +1,11 @@
+import LoginForm from "@/components/LoginForm";
+import styles from "@/app/page.module.css";
+
+export default function LoginPage() {
+  return (
+    <div className={styles.page}>
+      <h1>Admin Login</h1>
+      <LoginForm />
+    </div>
+  );
+}
