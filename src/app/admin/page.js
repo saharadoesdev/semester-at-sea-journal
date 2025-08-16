@@ -1,5 +1,5 @@
 'use client'
-import { supabase } from '../client'
+import { supabase } from '../../utils/supabase/client'
 import styles from "../page.module.css";
 
 export default function AdminPage() {
