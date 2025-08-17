@@ -1,24 +1,32 @@
-'use client'
-import Link from 'next/link';
+// import Link from 'next/link';
 import styles from "../../page.module.css";
 import { createClient } from "@/utils/supabase/client";
-const supabase = createClient();
+import PostsManager from '@/components/PostsManager';
 
-export default function AdminPage() {
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    window.location.href = "/login";
-  }
+export default async function AdminPage() {
+  const supabase = createClient();
+  const { data: posts, error } = await supabase
+    .from('JournalEntries')
+    .select('id, title, slug, display_date')
+    .order('created_at', { ascending: false });
+
+  // async function handleLogout() {
+  //   await supabase.auth.signOut();
+  //   window.location.href = "/login";
+  // }
+
   return (
     <div className={styles.page}>
         <br /><br /><br /><br /><br />
-      <h1>Admin</h1>
+      <h1>Manage Posts</h1>
       {/* <h2>Create Post</h2> */}
-      <Link href="/admin/create">Create Post</Link>
+      {/* <Link href="/admin/create">Create Post</Link>
       <br /><br />
       <Link href="/admin/edit">Edit Post</Link>
-      <br /><br />
-      <button onClick={handleLogout}>Log Out</button>
+      <br /><br /> */}
+      {/* <button onClick={handleLogout}>Log Out</button> */}
+      <PostsManager initialPosts={posts} />
+      <br /><br /><br />
     </div>
   );
 }
