@@ -81,7 +81,28 @@ const PostEditor = ({ initialData = {}, action }) => {
         />
         <br /><br />
 
-        <label htmlFor="content">Content (optional)</label>
+        <label htmlFor="slug">Slug</label>
+        <br />
+        <input
+          type="text"
+          id="slug"
+          name="slug"
+          defaultValue={initialData.slug}
+        //   onChange={handleChange}
+        />
+        <br /><br />
+
+        <label htmlFor="displayDate">Display Date</label>
+        <br />
+        <input
+          type="date"
+          id="displayDate"
+          name="displayDate"
+          defaultValue={initialData.displayDate}
+        />
+        <br /><br />
+
+        <label htmlFor="content">Content</label>
         <br />
         <textarea
           rows="5"
@@ -91,6 +112,17 @@ const PostEditor = ({ initialData = {}, action }) => {
           defaultValue={initialData.content}
         //   onChange={handleChange}
         ></textarea>
+        <br /><br />
+
+        <label htmlFor="tags">Tags (separate with commas)</label>
+        <br />
+        <input
+          type="text"
+          id="tags"
+          name="tags"
+          defaultValue={initialData.tags}
+        //   onChange={handleChange}
+        />
         <br /><br />
         
         {/* <span>Upload images: </span>
