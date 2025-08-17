@@ -28,7 +28,7 @@ const JournalCard = (entry) => {
 
     return (
         <div className={styles.JournalCard}>
-            <Link href="/journal/placeholder">
+            <Link href={`/journal/${entry.slug || ""}`}>
                 <img src={entry.image || "/next.svg"} alt="Placeholder Title" />
                 <h5>{entry.title || "Placeholder Title"}</h5>
                 <p>{entry.date || "2024-01-01"}</p>

@@ -61,6 +61,7 @@ const JournalArchive = (props) => {
                 content={post.content}
                 date={post.display_date}
                 image={post.image_urls[0]}
+                slug={post.slug}
               />
             ))
         ) : (
