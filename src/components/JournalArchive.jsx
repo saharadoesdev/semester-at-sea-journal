@@ -1,11 +1,6 @@
 "use client";
 import JournalCard from './JournalCard';
-// import Post from '../components/Post'
-// import dayjs from 'dayjs';
-// import relativeTime from 'dayjs/plugin/relativeTime';
-// import { useState } from 'react';
-// dayjs.extend(relativeTime);
-// import { PersonalityPieChart } from '../components/PieChart'
+import styles from "@/app/page.module.css";
 
 const JournalArchive = (props) => {
   const posts = props.posts || [];
@@ -52,7 +47,7 @@ const JournalArchive = (props) => {
             </select>
         </div> */}
 
-      <div className="Posts">
+      <div className={styles.JournalCards}>
         {loading ? (
           <div className="loading-spinner"></div>
         ) : posts && posts.length > 0 ? (
@@ -69,7 +64,7 @@ const JournalArchive = (props) => {
               />
             ))
         ) : (
-          <h2>{"No Posts Found 😞"}</h2>
+          <h2>{"Looks like the journal entries got lost at sea! 🌊"}</h2>
         )}
       </div>
     </>
