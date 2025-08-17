@@ -8,7 +8,7 @@ export default function Header() {
         <Link href="/">Sahara at Sea</Link>
       </div>
       <nav>
-        <Link href="/voyage-archives">The Voyage</Link>
+        <Link href="/journal">The Voyage</Link>
         <Link href="/message-wall">Message Wall</Link>
         <Link href="/about">About</Link>
       </nav>
