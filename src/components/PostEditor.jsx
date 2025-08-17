@@ -98,7 +98,7 @@ const PostEditor = ({ initialData = {}, action }) => {
           type="date"
           id="displayDate"
           name="displayDate"
-          defaultValue={initialData.displayDate}
+          defaultValue={initialData.display_date ? initialData.display_date.slice(0, 10) : ""}
         />
         <br /><br />
 
