@@ -1,83 +1,83 @@
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 
-const PostEditor = ({ initialData = {}, onSubmit }) => {
-  const [post, setPost] = useState({
-    title: initialData.title || "",
-    slug: initialData.slug || "",
-    content: initialData.content || "",
-    displayDate: initialData.displayDate || "",
-    imageURLs: initialData.imageURLs || [],
-    tags: initialData.tags || [],
-  });
+const PostEditor = ({ initialData = {}, action }) => {
+//   const [post, setPost] = useState({
+//     title: initialData.title || "",
+//     slug: initialData.slug || "",
+//     content: initialData.content || "",
+//     displayDate: initialData.displayDate || "",
+//     imageURLs: initialData.imageURLs || [],
+//     tags: initialData.tags || [],
+//   });
 
-  const [imageFiles, setImageFiles] = useState([]);
+//   const [imageFiles, setImageFiles] = useState([]);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setPost((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setPost((prev) => {
+//       return {
+//         ...prev,
+//         [name]: value,
+//       };
+//     });
+//   };
 
-  const handleImageUpload = (event) => {
-    if (event.target.files && event.target.files.length > 0) {
-      setImageFiles((prev) => [...prev, ...event.target.files]);
-    }
-  };
+//   const handleImageUpload = (event) => {
+//     if (event.target.files && event.target.files.length > 0) {
+//       setImageFiles((prev) => [...prev, ...event.target.files]);
+//     }
+//   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    onSubmit(post, imageFiles);
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     onSubmit(post, imageFiles);
 
-    // let imageURL = post.imageURL;
+//     // let imageURL = post.imageURL;
 
-    // if (imageFile) {
-    //   const { data, error } = await supabase.storage
-    //     .from("images") // your bucket name
-    //     .upload(`public/${Date.now()}_${imageFile.name}`, imageFile);
-    //   if (error) {
-    //     alert("Image upload failed!");
-    //     return;
-    //   }
+//     // if (imageFile) {
+//     //   const { data, error } = await supabase.storage
+//     //     .from("images") // your bucket name
+//     //     .upload(`public/${Date.now()}_${imageFile.name}`, imageFile);
+//     //   if (error) {
+//     //     alert("Image upload failed!");
+//     //     return;
+//     //   }
 
-    //   const { data: publicUrlData } = supabase.storage
-    //     .from("images")
-    //     .getPublicUrl(data.path);
+//     //   const { data: publicUrlData } = supabase.storage
+//     //     .from("images")
+//     //     .getPublicUrl(data.path);
 
-    //   imageURL = publicUrlData.publicUrl;
-    // }
+//     //   imageURL = publicUrlData.publicUrl;
+//     // }
 
-    // await supabase
-    //   .from("Posts")
-    //   .insert({
-    //     title: post.title,
-    //     userID: userID,
-    //     content: post.content,
-    //     imageURL: imageURL,
-    //     videoURL: post.videoURL,
-    //     flag: post.flag,
-    //     referencedPostID: post.referencedPostID ? post.referencedPostID : null,
-    //   })
-    //   .select();
+//     // await supabase
+//     //   .from("Posts")
+//     //   .insert({
+//     //     title: post.title,
+//     //     userID: userID,
+//     //     content: post.content,
+//     //     imageURL: imageURL,
+//     //     videoURL: post.videoURL,
+//     //     flag: post.flag,
+//     //     referencedPostID: post.referencedPostID ? post.referencedPostID : null,
+//     //   })
+//     //   .select();
 
-    // router.push("/admin");
-  };
+//     // router.push("/admin");
+//   };
 
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form action={action}>
         <label htmlFor="title">Title</label> <br />
         <input
           type="text"
           id="title"
           name="title"
-          value={post.title}
-          onChange={handleChange}
+          defaultValue={initialData.title}
+        //   onChange={handleChange}
         />
         <br /><br />
 
@@ -88,12 +88,12 @@ const PostEditor = ({ initialData = {}, onSubmit }) => {
           cols="50"
           id="content"
           name="content"
-          value={post.content}
-          onChange={handleChange}
+          defaultValue={initialData.content}
+        //   onChange={handleChange}
         ></textarea>
         <br /><br />
         
-        <span>Upload images: </span>
+        {/* <span>Upload images: </span>
         <br />
         <input type="file" accept="image/*" onChange={handleImageUpload} multiple />
         <br /><br />
@@ -107,7 +107,7 @@ const PostEditor = ({ initialData = {}, onSubmit }) => {
           <option value="Discussion">Discussion</option>
           <option value="Advice">Advice</option>
         </select>
-        <br /><br />
+        <br /><br /> */}
 
         <input type="submit" value="Post" />
       </form>

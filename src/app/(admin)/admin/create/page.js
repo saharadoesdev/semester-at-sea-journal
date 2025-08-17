@@ -6,10 +6,18 @@ import styles from "@/app/page.module.css";
 export default function CreatePostPage() {
   const handleCreatePost = async (formData) => {
     'use server';
-    const supabase = createClient();
-    
-    const { data, error } = await supabase.from('posts').insert([formData]).select();
-    
+    const supabase = await createClient();
+    const post = {
+        title: formData.get('title') || "",
+        slug: formData.get('slug') || "",
+        content: formData.get('content') || "",
+        display_date: formData.get('displayDate') || null,
+        image_urls: formData.getAll('imageURLs'),
+        tags: formData.getAll('tags'),
+    };
+    console.log(post)
+    const { data, error } = await supabase.from('JournalEntries').insert([post]).select();
+    console.log("Supabase insert result:", { data, error });
     if (!error) {
       redirect(`/admin`);
     }
@@ -18,7 +26,7 @@ export default function CreatePostPage() {
   return (
     <div className={styles.page}>
       <h1>Create New Journal Entry</h1>
-      <PostEditor onSubmit={handleCreatePost} />
+      <PostEditor action={handleCreatePost} />
     </div>
   );
 }
