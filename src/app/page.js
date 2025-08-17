@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import MapDynamicWrapper from "../components/MapDynamicWrapper";
 import JournalArchive from "@/components/JournalArchive";
+import Link from 'next/link';
 import styles from "./page.module.css";
 
 export default async function Home() {
@@ -15,15 +16,16 @@ export default async function Home() {
     <>
       <MapDynamicWrapper />
       <div className={styles.page}>
+        <h2>Latest Update ↓</h2>
+        <JournalArchive posts={posts || []} />
+        
         <h1>Welcome to My Voyage!</h1>
         <p>
           Explore the world with me as I document my travels on my Semester at
           Sea journey.
         </p>
-        <h2>Latest Journal Entries</h2>
-
-        <JournalArchive posts={posts || []} />
-
+        <h3 style={{ textAlign: 'center' }}>Over the next 100 days, I'll be visiting 10 countries across three continents. <Link style={{ color: '#fb6962', textDecoration: 'underline' }} href="/itinerary">Explore the full itinerary.</Link></h3>
+        <br /><br />
         {/* <div className={styles.JournalCards}>
         <JournalCard />
         <JournalCard />
