@@ -30,9 +30,9 @@ const JournalCard = (entry) => {
         <div className={styles.JournalCard}>
             <Link href="/journal/placeholder">
                 <img src="/next.svg" alt="Placeholder Title" />
-                <h5>Placeholder Title</h5>
-                <p>2024-01-01</p>
-                <h6>This is a preview of the journal entry. More content will be available soon...</h6>
+                <h5>{entry.title || "Placeholder Title"}</h5>
+                <p>{entry.date || "2024-01-01"}</p>
+                <h6>{entry.content || "This is a preview of the journal entry. More content will be available soon..."}</h6>
                 <p>Read more...</p>
             </Link>
         </div>

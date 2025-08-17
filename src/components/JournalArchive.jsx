@@ -64,6 +64,7 @@ const JournalArchive = (props) => {
                 id={post.id}
                 title={post.title}
                 content={post.content}
+                date={post.display_date}
                 // upvoteCount={post.upvoteCount}
                 // timeAgo={dayjs(post.created_at).fromNow()}
                 // imageURL={post.imageURL}
