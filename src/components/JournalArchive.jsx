@@ -57,7 +57,7 @@ const JournalArchive = (props) => {
           <div className="loading-spinner"></div>
         ) : posts && posts.length > 0 ? (
           [...posts]
-            // .sort((a, b) => b.id - a.id)    // Display newest first
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))    // Display newest first
             .map((post, index) => (
               <JournalCard
                 key={post.id}
@@ -65,12 +65,7 @@ const JournalArchive = (props) => {
                 title={post.title}
                 content={post.content}
                 date={post.display_date}
-                // upvoteCount={post.upvoteCount}
-                // timeAgo={dayjs(post.created_at).fromNow()}
-                // imageURL={post.imageURL}
-                // videoURL={post.videoURL}
-                // flag={post.flag}
-                // refetchPosts={props.refetchPosts}
+                image={post.image_urls[0]}
               />
             ))
         ) : (
