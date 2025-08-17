@@ -7,12 +7,32 @@ export default function CreatePostPage() {
   const handleCreatePost = async (formData) => {
     'use server';
     const supabase = await createClient();
+
+    const files = formData.getAll('images');
+    const image_urls = [];
+
+    for (const file of files) {
+      if (file && file.size > 0) {
+        const { data, error } = await supabase.storage
+          .from('images')
+          .upload(`public/${Date.now()}_${file.name}`, file, {
+            contentType: file.type,
+          });
+        if (error) {
+          console.error("Image upload error:", error);
+          continue;
+        }
+        const { publicUrl } = supabase.storage.from('images').getPublicUrl(data.path);
+        image_urls.push(publicUrl);
+      }
+    }
+
     const post = {
         title: formData.get('title') || "",
         slug: formData.get('slug') || "",
         content: formData.get('content') || "",
         display_date: formData.get('displayDate') || null,
-        image_urls: formData.getAll('imageURLs'),
+        image_urls,
         tags: formData.getAll('tags'),
     };
     console.log(post)

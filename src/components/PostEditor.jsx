@@ -125,12 +125,12 @@ const PostEditor = ({ initialData = {}, action }) => {
         />
         <br /><br />
         
-        {/* <span>Upload images: </span>
+        <span>Upload images: </span>
         <br />
-        <input type="file" accept="image/*" onChange={handleImageUpload} multiple />
+        <input type="file" name="images" accept="image/*" multiple />
         <br /><br />
         
-        <label htmlFor="flag">Flag (optional)</label>
+        {/* <label htmlFor="flag">Flag (optional)</label>
         <br />
         <select id="flag" name="flag" value={post.flag} onChange={handleChange}>
           <option value="">None</option>
