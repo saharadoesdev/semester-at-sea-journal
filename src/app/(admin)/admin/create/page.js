@@ -22,8 +22,8 @@ export default function CreatePostPage() {
           console.error("Image upload error:", error);
           continue;
         }
-        const { publicUrl } = supabase.storage.from('images').getPublicUrl(data.path);
-        image_urls.push(publicUrl);
+        const { data: publicUrlData } = supabase.storage.from('images').getPublicUrl(data.path);
+        image_urls.push(publicUrlData.publicUrl);
       }
     }
 
