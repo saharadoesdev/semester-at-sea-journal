@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import MapDynamicWrapper from "../components/MapDynamicWrapper";
+import LocalTime from "@/components/LocalTime";
 import JournalArchive from "@/components/JournalArchive";
 import Link from 'next/link';
 import styles from "./page.module.css";
@@ -16,6 +17,7 @@ export default async function Home() {
     <>
       <MapDynamicWrapper />
       <div className={styles.page}>
+        <LocalTime timezone="Europe/Amsterdam" />
         <h2>Latest Update ↓</h2>
         <JournalArchive posts={posts || []} />
         
