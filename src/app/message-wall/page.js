@@ -7,9 +7,9 @@ export default async function MessageWallPage() {
   const { data: messages, error } = await supabase.from("Messages").select();
 
   return (
-    <div className={styles.page}>
-      <h1 style={{ marginTop: "500px" }}>Message Wall</h1>
+    // <div className={styles.page}>
+    //   <h1 style={{ marginTop: "500px" }}>Message Wall</h1>
       <MessageWallDisplay messages={messages || []} />
-    </div>
+    // </div>
   );
 }
