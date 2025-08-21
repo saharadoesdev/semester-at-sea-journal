@@ -8,7 +8,7 @@ const MessageWallDisplay = (props) => {
 
   return (
     <>
-      <div className={styles.MessageCards}>
+      <div style={{ marginTop: "300px" }} className={styles.MessageCards}>
         {loading ? (
           <div className="loading-spinner"></div>
         ) : messages && messages.length > 0 ? (
@@ -19,7 +19,7 @@ const MessageWallDisplay = (props) => {
                 key={message.id}
                 id={message.id}
                 content={message.content}
-                date={message.date}
+                date={message.created_at}
                 author_name={message.author_name}
                 relation={message.relation}
               />

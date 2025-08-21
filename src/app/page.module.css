@@ -172,3 +172,10 @@ a.secondary {
   gap: 24px;
   justify-content: center;
 }
+
+.MessageCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
