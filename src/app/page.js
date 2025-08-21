@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
-import MapDynamicWrapper from "../components/MapDynamicWrapper";
-import LocalTime from "@/components/LocalTime";
-import JournalArchive from "@/components/JournalArchive";
+import MapDynamicWrapper from "../components/map/MapDynamicWrapper";
+import LocalTime from "@/components/map/LocalTime";
+import JournalArchive from "@/components/journal/JournalArchive";
 import Link from 'next/link';
 import itinerary from "@/data/itinerary.json";
 import styles from "./page.module.css";

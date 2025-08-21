@@ -1,7 +1,7 @@
 // import Link from 'next/link';
 import styles from "../../page.module.css";
 import { createClient } from "@/utils/supabase/client";
-import PostsManager from '@/components/PostsManager';
+import PostsManager from '@/components/admin/PostsManager';
 
 export default async function AdminPage() {
   const supabase = createClient();

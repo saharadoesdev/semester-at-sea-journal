@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import PostEditor from "@/components/PostEditor";
+import PostEditor from "@/components/admin/PostEditor";
 import styles from "@/app/page.module.css";
 
 export default async function EditPostPage({ params }) {

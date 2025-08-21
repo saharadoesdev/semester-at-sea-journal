@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
-import JournalArchive from "@/components/JournalArchive";
+import JournalArchive from "@/components/journal/JournalArchive";
 import styles from "../page.module.css";
 
 export default async function JournalsPage() {
