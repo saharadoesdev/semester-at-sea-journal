@@ -4,7 +4,7 @@ import styles from "../page.module.css";
 
 export default async function MessageWallPage() {
   const supabase = await createClient();
-  const { data: messages, error } = await supabase.from("Messages").select();
+  const { data: messages, error } = await supabase.from("Messages").select().order('created_at', { ascending: false });
 
   return (
     // <div className={styles.page}>
