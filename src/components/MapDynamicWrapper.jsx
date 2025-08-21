@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
-export default function DynamicMap() {
+export default function DynamicMap(mapProps) {
   const Map = useMemo(() => dynamic(
     () => import('../components/MapContainer'),
     {
@@ -12,5 +12,5 @@ export default function DynamicMap() {
     }
   ), []);
 
-  return <Map />;
+  return <Map {...mapProps} />;
 }

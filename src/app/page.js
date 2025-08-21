@@ -3,6 +3,7 @@ import MapDynamicWrapper from "../components/MapDynamicWrapper";
 import LocalTime from "@/components/LocalTime";
 import JournalArchive from "@/components/JournalArchive";
 import Link from 'next/link';
+import itinerary from "@/data/itinerary.json";
 import styles from "./page.module.css";
 
 export default async function Home() {
@@ -13,9 +14,100 @@ export default async function Home() {
     .order("created_at", { ascending: false })
     .limit(1); // probably increase later
 
+  function calculateTravelStatus(itinerary, currentDate) {
+    for (let i = 0; i < itinerary.length; i++) {
+      const currentStop = itinerary[i];
+      const arrivalTime = new Date(currentStop.arrivalDate);
+      const departureTime = new Date(currentStop.departureDate);
+
+      // check if currently in a port
+      if (currentDate >= arrivalTime && currentDate <= departureTime) {
+        const visitedCountries = itinerary.slice(0, i).map(stop => stop.country).filter(Boolean);
+        const futureCountries = itinerary.slice(i + 1).map(stop => stop.country).filter(Boolean);
+        
+        return {
+          status: 'In Port',
+          currentLocation: currentStop,
+          visitedCountries: [...new Set(visitedCountries)],
+          futureCountries: [...new Set(futureCountries)],
+        };
+      }
+
+      // check if currently at sea
+      if (i + 1 < itinerary.length) {
+        const nextStop = itinerary[i + 1];
+        const nextArrivalTime = new Date(nextStop.arrivalDate);
+
+        if (currentDate > departureTime && currentDate < nextArrivalTime) {
+          const visitedCountries = itinerary.slice(0, i + 1).map(stop => stop.country).filter(Boolean);
+          const futureCountries = itinerary.slice(i + 2).map(stop => stop.country).filter(Boolean);
+
+          return {
+            status: 'At Sea',
+            lastPort: currentStop,
+            nextPort: nextStop,
+            visitedCountries: [...new Set(visitedCountries)],
+            futureCountries: [...new Set(futureCountries)],
+          };
+        }
+      }
+    }
+
+    // if loop finishes, voyage is either not started or over
+    if (currentDate < new Date(itinerary[0].arrivalDate)) {
+      return { status: 'Not Started' };
+    } else {
+      return { status: 'Completed' };
+    }
+  }
+
+  function calculatePaths(itinerary, travelStatus) {
+    if (travelStatus.status === 'Not Started' || travelStatus.status === 'Completed') {
+      const fullPath = itinerary.map(stop => stop.coords);
+      return {
+        completedPath: travelStatus.status === 'Completed' ? fullPath : [],
+        futurePath: travelStatus.status === 'Not Started' ? fullPath : [],
+      };
+    }
+
+    let lastPortIndex = -1;
+
+    if (travelStatus.status === 'In Port') {
+      // Find the index of the current port
+      lastPortIndex = itinerary.findIndex(stop => stop.city === travelStatus.currentLocation.city);
+    } else { // 'At Sea'
+      // Find the index of the last port we were at
+      lastPortIndex = itinerary.findIndex(stop => stop.city === travelStatus.lastPort.city);
+    }
+
+    if (lastPortIndex === -1) return { completedPath: [], futurePath: [] };
+
+    const completedPath = itinerary.slice(0, lastPortIndex + 1).map(stop => stop.coords);
+
+    const futurePath = itinerary.slice(lastPortIndex).map(stop => stop.coords);
+
+    return { completedPath, futurePath };
+  }
+
+  const currentDate = new Date('2025-09-29T05:41:00.000Z');
+
+  const travelStatus = calculateTravelStatus(itinerary, currentDate);
+
+  const { completedPath, futurePath } = calculatePaths(itinerary, travelStatus);
+  
+  const currentShipPosition = [15.3, 73.8]; // placeholder
+
+  const mapProps = {
+    travelStatus,
+    completedPath,
+    futurePath,
+    currentShipPosition,
+    itinerary,
+  };
+
   return (
     <>
-      <MapDynamicWrapper />
+      <MapDynamicWrapper {...mapProps}/>
       <div className={styles.page}>
         <LocalTime timezone="Europe/Amsterdam" />
         <h2>Latest Update ↓</h2>

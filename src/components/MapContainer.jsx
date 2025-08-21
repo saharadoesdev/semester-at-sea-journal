@@ -8,19 +8,24 @@ import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import styles from "./MapContainer.module.css";
 
-export default function Map() {
+export default function Map(mapProps) {
   const position = [20, 0]; // Initial center of the map
 
   // placeholders; these will be passed in from page.js later
-  const visitedCountries = ["Netherlands", "France"];
-  const currentCountry = "Spain";
-  const nextCountry = "Morocco";
-  const futureCountries = ["Ghana", "South Africa", "Mauritius", "India", "Hong Kong", "Vietnam", "Thailand"];
+  // const visitedCountries = ["Netherlands", "France"];
+  // const currentCountry = "Spain";
+  // const nextCountry = "Morocco";
+  // const futureCountries = ["Ghana", "South Africa", "Mauritius", "India", "Hong Kong", "Vietnam", "Thailand"];
+  const { travelStatus, completedPath, futurePath, currentShipPosition, itinerary } = mapProps;
 
   const [geoJsonData, setGeoJsonData] = useState(null);
 
   // const currentShipPosition = calculateCurrentPosition(itinerary);
-  const currentShipPosition = [15.3, 73.8]; // placeholder
+  // const currentShipPosition = [15.3, 73.8]; // placeholder
+  const visitedCountries = travelStatus.visitedCountries || [];
+  const currentCountry = travelStatus.currentCountry || "";
+  const nextCountry = travelStatus.nextCountry || "";
+  const futureCountries = travelStatus.futureCountries || [];
 
   const shipIcon = new L.Icon({
     iconUrl: "/ship-icon.svg",
