@@ -20,7 +20,7 @@ const MessageWallDisplay = (props) => {
                 id={message.id}
                 content={message.content}
                 date={message.date}
-                name={message.name}
+                author_name={message.author_name}
                 relation={message.relation}
               />
             ))
