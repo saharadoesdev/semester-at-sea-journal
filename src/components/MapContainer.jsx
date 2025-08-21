@@ -1,10 +1,8 @@
 "use client";
 
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { GeoJSON } from "react-leaflet";
 import { useState, useEffect } from "react";
-import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import styles from "./MapContainer.module.css";
 
@@ -31,6 +29,10 @@ export default function Map(mapProps) {
     iconUrl: "/ship-icon.svg",
     iconSize: [65, 65],
   });
+
+  const completedPathOptions = { color: 'white', weight: 2, opacity: 0.8 };
+
+  const futurePathOptions = { color: 'white', weight: 2, opacity: 0.8, dashArray: '7, 10' };
 
   useEffect(() => {
     fetch("/countries.json")
@@ -120,6 +122,9 @@ export default function Map(mapProps) {
             onEachFeature={onEachCountry}
             />
         )}
+
+        <Polyline pathOptions={completedPathOptions} positions={completedPath} />
+        <Polyline pathOptions={futurePathOptions} positions={futurePath} />
         
         <Marker position={currentShipPosition} icon={shipIcon}>
             <Popup>My current location! Heading to Ghana next.</Popup>
