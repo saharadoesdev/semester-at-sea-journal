@@ -38,34 +38,36 @@ export default function Map() {
     const countryName = feature.properties.name;
     if (visitedCountries.includes(countryName)) {
       return {
-        color: "#00ff00",
+        color: "#ffffff",
         weight: 1,
-        fillColor: "#00ff00",
+        dashArray: "6 4",
+        // fillColor: "#00ff00",
         fillOpacity: 0.3,
       }; // Green for visited
     }
     if (countryName === currentCountry) {
       return {
-        color: "#ffff00",
-        weight: 2,
-        fillColor: "#ffff00",
-        fillOpacity: 0.5,
+        color: "#ffffff",
+        weight: 1.5,
+        // fillColor: "#ffff00",
+        fillOpacity: 0.4,
       }; // Yellow for current
     }
     if (countryName === nextCountry) {
       return {
-        color: "#ffa500",
+        color: "#ffffff",
         weight: 1,
-        fillColor: "#ffa500",
-        fillOpacity: 0.4,
+        // fillColor: "#ffa500",
+        fillOpacity: 0.3,
       }; // Orange for next
     }
     if (futureCountries.includes(countryName)) {
       return {
-        color: "#00ff00",
+        color: "#ffffff",
         weight: 1,
-        fillColor: "#00ff00",
-        fillOpacity: 0.3,
+        dashArray: "1 4",
+        // fillColor: "#00ff00",
+        fillOpacity: 0.2,
       }; // Green for visited
     }
     // Default outline/fill style for all other countries - invisible
