@@ -11,9 +11,11 @@ import styles from "./MapContainer.module.css";
 export default function Map() {
   const position = [20, 0]; // Initial center of the map
 
+  // placeholders; these will be passed in from page.js later
   const visitedCountries = ["Netherlands", "France"];
   const currentCountry = "Spain";
   const nextCountry = "Morocco";
+  const futureCountries = ["Ghana", "South Africa", "Mauritius", "India", "Hong Kong", "Vietnam", "Thailand"];
 
   const [geoJsonData, setGeoJsonData] = useState(null);
 
@@ -57,6 +59,14 @@ export default function Map() {
         fillColor: "#ffa500",
         fillOpacity: 0.4,
       }; // Orange for next
+    }
+    if (futureCountries.includes(countryName)) {
+      return {
+        color: "#00ff00",
+        weight: 1,
+        fillColor: "#00ff00",
+        fillOpacity: 0.3,
+      }; // Green for visited
     }
     // Default outline/fill style for all other countries - invisible
     return { color: "transparent", fillColor: "transparent" };
