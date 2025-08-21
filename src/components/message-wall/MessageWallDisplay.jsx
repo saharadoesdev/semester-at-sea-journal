@@ -19,7 +19,7 @@ const MessageWallDisplay = (props) => {
                 key={message.id}
                 id={message.id}
                 content={message.content}
-                date={message.created_at}
+                created_at={message.created_at}
                 author_name={message.author_name}
                 relation={message.relation}
               />
