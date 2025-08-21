@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from "@/app/page.module.css";
 
 const DetailPage = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
     const supabase = await createClient();
     const { data: post, error: fetchError } = await supabase
       .from("JournalEntries")
