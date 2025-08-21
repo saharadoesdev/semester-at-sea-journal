@@ -23,8 +23,8 @@ export default function Map() {
   const currentShipPosition = [15.3, 73.8]; // placeholder
 
   const shipIcon = new L.Icon({
-    iconUrl: "/globe.svg", // should be ship-icon.png later
-    iconSize: [40, 40],
+    iconUrl: "/ship-icon.svg",
+    iconSize: [65, 65],
   });
 
   useEffect(() => {
