@@ -30,7 +30,18 @@ export default function Map() {
   useEffect(() => {
     fetch("/countries.json")
       .then((res) => res.json())
-      .then((data) => setGeoJsonData(data));
+      .then((data) => {
+        const itineraryCountries = [
+          ...visitedCountries,
+          currentCountry,
+          nextCountry,
+          ...futureCountries,
+        ];
+        const filteredFeatures = data.features.filter((feature) =>
+          itineraryCountries.includes(feature.properties.name)
+        );
+        setGeoJsonData({ ...data, features: filteredFeatures });
+      });
   }, []);
 
   // Determines color for each country
@@ -42,7 +53,7 @@ export default function Map() {
         weight: 1,
         dashArray: "6 4",
         // fillColor: "#00ff00",
-        fillOpacity: 0.3,
+        fillOpacity: 0.2,
       }; // Green for visited
     }
     if (countryName === currentCountry) {
@@ -50,7 +61,7 @@ export default function Map() {
         color: "#ffffff",
         weight: 1.5,
         // fillColor: "#ffff00",
-        fillOpacity: 0.4,
+        fillOpacity: 0.3,
       }; // Yellow for current
     }
     if (countryName === nextCountry) {
@@ -58,7 +69,7 @@ export default function Map() {
         color: "#ffffff",
         weight: 1,
         // fillColor: "#ffa500",
-        fillOpacity: 0.3,
+        fillOpacity: 0.2,
       }; // Orange for next
     }
     if (futureCountries.includes(countryName)) {
@@ -67,7 +78,7 @@ export default function Map() {
         weight: 1,
         dashArray: "1 4",
         // fillColor: "#00ff00",
-        fillOpacity: 0.2,
+        fillOpacity: 0.1,
       }; // Green for visited
     }
     // Default outline/fill style for all other countries - invisible
