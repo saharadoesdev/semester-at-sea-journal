@@ -4,7 +4,8 @@
         "arrivalDate": "2025-08-31T08:00+02:00",
         "departureDate": "2025-09-09T20:00+02:00",
         "coords": [52.4602, 4.6126],
-        "timezone": "Europe/Amsterdam"
+        "timezone": "Europe/Amsterdam",
+        "portCoords": [52.4598, 4.5688]
     },
     {
         "city": "Nantes, France",
@@ -32,21 +33,24 @@
         "arrivalDate": "2025-10-13T08:00+00:00",
         "departureDate": "2025-10-15T18:00+00:00",
         "coords": [5.669, -0.0166],
-        "timezone": "Africa/Accra"
+        "timezone": "Africa/Accra",
+        "portCoords": [5.6270, 0.0072]
     },
     {
         "city": "Takoradi, Ghana",
         "arrivalDate": "2025-10-16T08:00+00:00",
         "departureDate": "2025-10-17T18:00+00:00",
         "coords": [4.9045, -1.7591],
-        "timezone": "Africa/Accra"
+        "timezone": "Africa/Accra",
+        "portCoords": [4.8800, -1.7479]
     },
     {
         "city": "Cape Town, South Africa",
         "arrivalDate": "2025-10-26T08:00+02:00",
         "departureDate": "2025-10-31T18:00+02:00",
         "coords": [-33.9249, 18.4241],
-        "timezone": "Africa/Johannesburg"
+        "timezone": "Africa/Johannesburg",
+        "portCoords": [-33.9076, 18.4206]
     },
     {
         "city": "Port Louis, Mauritius",
@@ -60,7 +64,8 @@
         "arrivalDate": "2025-11-18T08:00+05:30",
         "departureDate": "2025-11-23T15:00+05:30",
         "coords": [9.9312, 76.2673],
-        "timezone": "Asia/Kolkata"
+        "timezone": "Asia/Kolkata",
+        "portCoords": [9.9680, 76.2685]
     },
     {
         "city": "Hong Kong, Hong Kong",
@@ -74,13 +79,15 @@
         "arrivalDate": "2025-12-01T12:00+07:00",
         "departureDate": "2025-12-06T21:00+07:00",
         "coords": [10.7769, 106.7009],
-        "timezone": "Asia/Ho_Chi_Minh"
+        "timezone": "Asia/Ho_Chi_Minh",
+        "portCoords": [10.7669, 106.7085]
     },
     {
         "city": "Bangkok, Thailand",
         "arrivalDate": "2025-12-22T08:00+07:00",
         "departureDate": "2025-12-24T22:00+07:00",
         "coords": [13.7563, 100.5018],
-        "timezone": "Asia/Bangkok"
+        "timezone": "Asia/Bangkok",
+        "portCoords": [13.7033, 100.5753]
     }
 ]
