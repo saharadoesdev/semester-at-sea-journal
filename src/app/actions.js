@@ -23,3 +23,20 @@ export async function submitMessageAction(formData) {
 
   return { success: true };
 }
+
+export async function approveMessageAction(formData) {
+  const supabase = await createClient();
+
+  const messageId = formData.get("messageId");
+
+  const { error } = await supabase
+    .from("Messages")
+    .update({ status: "approved" })
+    .eq("id", messageId);
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  return { success: true };
+}

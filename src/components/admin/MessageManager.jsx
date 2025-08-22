@@ -1,4 +1,5 @@
 'use client';
+import { approveMessageAction } from "@/app/actions";
 
 export default function MessageManager({ initialMessages }) {
   const messages = initialMessages || [];
@@ -27,9 +28,12 @@ export default function MessageManager({ initialMessages }) {
               <td>{message.content}</td>
               <td>{message.status}</td>
               <td>
-                {/* <Link href={`/admin/edit/${message.slug}`}>Edit</Link> */}
-                {/* need another small component for delete */}
-                {/* <DeleteButton messageId={message.id} /> */}
+                {message.status !== "approved" && (
+                  <form action={approveMessageAction}>
+                    <input type="hidden" name="messageId" value={message.id} />
+                    <button type="submit">Approve</button>
+                  </form>
+                )}
               </td>
             </tr>
           ))}
