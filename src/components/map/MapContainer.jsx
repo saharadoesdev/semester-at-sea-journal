@@ -21,7 +21,7 @@ export default function Map(mapProps) {
   // const currentShipPosition = calculateCurrentPosition(itinerary);
   // const currentShipPosition = [15.3, 73.8]; // placeholder
   const visitedCountries = travelStatus.visitedCountries || [];
-  const currentCountry = travelStatus.currentCountry || "";
+  const currentCountry = travelStatus.currentLocation.country || "";
   const nextCountry = travelStatus.nextCountry || "";
   const futureCountries = travelStatus.futureCountries || [];
 
@@ -41,7 +41,7 @@ export default function Map(mapProps) {
         const itineraryCountries = [
           ...visitedCountries,
           currentCountry,
-          nextCountry,
+          // nextCountry,
           ...futureCountries,
         ];
         const filteredFeatures = data.features.filter((feature) =>
