@@ -9,7 +9,7 @@ export async function submitMessageAction(formData) {
   const messageData = {
     author_name: formData.author_name,
     relation: formData.relation,
-    message: formData.message,
+    content: formData.content,
     status: "pending", // for moderation
   };
 
