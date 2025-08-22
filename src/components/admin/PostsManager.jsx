@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 export default function PostsManager({ initialPosts }) {
   const posts = initialPosts || [];
-  console.log(posts)
 
   return (
     <div>

@@ -33,6 +33,7 @@ export default async function AdminPage() {
       {/* <button onClick={handleLogout}>Log Out</button> */}
       <PostsManager initialPosts={posts} />
       < br />< br />
+      <h1>Manage Messages</h1>
       <MessageManager initialMessages={messages} />
       <br /><br /><br />
     </div>

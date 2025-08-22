@@ -2,7 +2,6 @@
 
 export default function MessageManager({ initialMessages }) {
   const messages = initialMessages || [];
-  console.log(messages)
 
   return (
     <div>
@@ -19,7 +18,10 @@ export default function MessageManager({ initialMessages }) {
         <tbody>
           {messages.map((message) => (
             <tr key={message.id}>
-              <td>{new Date(message.created_at).toLocaleDateString()}</td>
+              <td>
+                {new Date(message.created_at).toLocaleDateString()}{" "}
+                {new Date(message.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </td>
               <td>{message.author_name}</td>
               <td>{message.relation}</td>
               <td>{message.content}</td>
