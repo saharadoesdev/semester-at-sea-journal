@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import MessageCard from "./MessageCard";
+import MessageFormModal from "./MessageFormModal";
 import styles from "@/app/page.module.css";
 
 const MessageWallDisplay = (props) => {
