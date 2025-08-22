@@ -6,7 +6,6 @@ import styles from "@/app/page.module.css";
 
 const MessageWallDisplay = (props) => {
   const messages = props.messages || [];
-  const loading = false;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -25,9 +24,7 @@ const MessageWallDisplay = (props) => {
         </div>
 
         <div className={styles.MessageCards}>
-          {loading ? (
-            <div className="loading-spinner"></div>
-          ) : messages && messages.length > 0 ? (
+          {messages && messages.length > 0 ? (
             [...messages].map((message, index) => (
               <MessageCard
                 key={message.id}
