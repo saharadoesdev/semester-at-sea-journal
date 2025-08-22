@@ -1,0 +1,103 @@
+/* The Modal Overlay */
+/* This creates the dark, semi-transparent background that covers the entire screen. */
+.modal-overlay {
+  position: fixed; /* Stays in place even when the page is scrolled */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+  display: flex; /* Uses flexbox to easily center the content */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it sits on top of all other content */
+  animation: fadeIn 0.3s ease-out; /* A subtle fade-in animation */
+}
+
+/* The Modal Content Box */
+/* This is the white box that holds your form. */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%; /* Takes up 90% of the screen width on mobile */
+  max-width: 500px; /* But won't get wider than 500px on desktop */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative; /* Needed for positioning the close button */
+  animation: slideIn 0.4s ease-out; /* A subtle slide-in animation */
+}
+
+/* The Close Button (the '×') */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+/* Basic styling for the form inside the modal to make it look nice */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Adds space between form elements */
+}
+
+.modal-content form label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.modal-content form input,
+.modal-content form select,
+.modal-content form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit; /* Makes sure it uses the same font as the rest of the site */
+}
+
+.modal-content form button[type="submit"] {
+  background-color: #007bff; /* A nice blue color */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-content form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.modal-content form button[type="submit"]:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+
+/* Optional Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

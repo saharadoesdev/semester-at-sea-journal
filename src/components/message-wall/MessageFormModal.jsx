@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { submitMessageAction } from "@/app/actions";
+import styles from "./MessageFormModal.module.css";
 
 export default function MessageFormModal({ onClose }) {
   const [formData, setFormData] = useState({
@@ -35,9 +36,9 @@ export default function MessageFormModal({ onClose }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-button" onClick={onClose}>
+    <div className={styles["modal-overlay"]} onClick={onClose}>
+      <div className={styles["modal-content"]} onClick={(e) => e.stopPropagation()}>
+        <button className={styles["close-button"]} onClick={onClose}>
           &times;
         </button>
         <h2>Add Your Message</h2>
