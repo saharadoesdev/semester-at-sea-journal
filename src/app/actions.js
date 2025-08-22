@@ -24,10 +24,8 @@ export async function submitMessageAction(formData) {
   return { success: true };
 }
 
-export async function approveMessageAction(formData) {
+export async function approveMessageAction({ messageId }) {
   const supabase = await createClient();
-
-  const messageId = formData.get("messageId");
 
   const { error } = await supabase
     .from("Messages")

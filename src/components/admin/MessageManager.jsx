@@ -1,8 +1,22 @@
 'use client';
+import { useState } from "react";
 import { approveMessageAction } from "@/app/actions";
 
 export default function MessageManager({ initialMessages }) {
-  const messages = initialMessages || [];
+  const [messages, setMessages] = useState(initialMessages || []);
+
+  const handleApprove = async (id) => {
+    const result = await approveMessageAction({ messageId: id });
+    if (result.success) {
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === id ? { ...msg, status: "approved" } : msg
+        )
+      );
+    } else {
+      alert("Failed to approve message: " + result.error);
+    }
+  };
 
   return (
     <div>
@@ -29,10 +43,9 @@ export default function MessageManager({ initialMessages }) {
               <td>{message.status}</td>
               <td>
                 {message.status !== "approved" && (
-                  <form action={approveMessageAction}>
-                    <input type="hidden" name="messageId" value={message.id} />
-                    <button type="submit">Approve</button>
-                  </form>
+                  <button onClick={() => handleApprove(message.id)}>
+                    Approve
+                  </button>
                 )}
               </td>
             </tr>
