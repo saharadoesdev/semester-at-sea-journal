@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
-// import GlossaryDisplay from "@/components/glossary/GlossaryDisplay";
+import GlossaryDisplay from "@/components/glossary/GlossaryDisplay";
 
 export default async function GlossaryPage() {
   const supabase = await createClient();
@@ -9,5 +9,5 @@ export default async function GlossaryPage() {
     .order("term", { ascending: true });
 
     console.log(terms)
-//   return <GlossaryDisplay terms={terms || []} />;
+  return <GlossaryDisplay terms={terms || []} />;
 }
