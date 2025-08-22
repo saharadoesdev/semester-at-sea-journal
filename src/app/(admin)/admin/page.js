@@ -2,12 +2,18 @@
 import styles from "../../page.module.css";
 import { createClient } from "@/utils/supabase/client";
 import PostsManager from '@/components/admin/PostsManager';
+import MessageManager from '@/components/admin/MessageManager';
 
 export default async function AdminPage() {
   const supabase = createClient();
-  const { data: posts, error } = await supabase
+  const { data: posts, error: postsError } = await supabase
     .from('JournalEntries')
     .select('id, title, slug, display_date')
+    .order('created_at', { ascending: false });
+
+  const { data: messages, error: messagesError } = await supabase
+    .from('Messages')
+    .select('id, content, created_at, author_name, relation, status')
     .order('created_at', { ascending: false });
 
   // async function handleLogout() {
@@ -26,6 +32,8 @@ export default async function AdminPage() {
       <br /><br /> */}
       {/* <button onClick={handleLogout}>Log Out</button> */}
       <PostsManager initialPosts={posts} />
+      < br />< br />
+      <MessageManager initialMessages={messages} />
       <br /><br /><br />
     </div>
   );
