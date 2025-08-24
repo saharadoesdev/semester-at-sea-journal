@@ -1,16 +1,19 @@
 'use client';
 import { useState } from "react";
-// import { submitGlossaryTerm } from "@/app/actions";
+import { submitGlossaryTerm } from "@/app/actions";
 
 export default function GlossaryManager({ initialGlossary }) {
   const [glossary, setGlossary] = useState(initialGlossary || []);
   const [formData, setFormData] = useState({ term: "", definition: "" });
 
-  const handleSubmit = async (term, definition) => {
-    // const result = await submitGlossaryTerm({ term, definition });
-    const result = { success: true };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // const { term, definition } = formData;
+    const result = await submitGlossaryTerm(formData);
+    // const result = { success: true };
     if (result.success) {
-      setGlossary((prev) => [...prev, { term, definition }]);
+      setGlossary((prev) => [...prev, formData]);
+      setFormData({ term: "", definition: "" });
     } else {
       alert("Failed to add glossary term: " + result.error);
     }
@@ -52,7 +55,7 @@ export default function GlossaryManager({ initialGlossary }) {
         </thead>
         <tbody>
           {glossary.map((term) => (
-            <tr key={term.id}>
+            <tr key={term.id || `${term.term}-${term.definition}`}>
               <td>{term.term}</td>
               <td>{term.definition}</td>
               <td>

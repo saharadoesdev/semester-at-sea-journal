@@ -38,3 +38,17 @@ export async function approveMessageAction({ messageId }) {
 
   return { success: true };
 }
+
+export async function submitGlossaryTerm(formData) {
+  const supabase = await createClient();
+
+  const { error, data } = await supabase
+    .from("Glossary")
+    .insert([{ term: formData.term, definition: formData.definition }]);
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  return { success: true };
+}
