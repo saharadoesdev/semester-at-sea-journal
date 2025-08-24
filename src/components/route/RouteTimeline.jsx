@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-// import TimelineCard from './TimelineCard';
+import TimelineCard from './TimelineCard';
 
 export default function RouteTimeline({ itinerary }) {
   //   const [currentDate, setCurrentDate] = useState(new Date());
@@ -29,7 +29,14 @@ export default function RouteTimeline({ itinerary }) {
 
       {itinerary.map((stop, index) => (
         <div key={stop.city} className="timeline-stop">
-          <h3>
+           <TimelineCard 
+            city={stop.city}
+            country={stop.country}
+            dates={`${new Date(stop.arrivalDate).toLocaleDateString()} - ${new Date(stop.departureDate).toLocaleDateString()}`}
+            status={getStatus(stop.arrivalDate, stop.departureDate)}
+            countrySlug={stop.country.toLowerCase().replace(/ /g, '-')}
+          />
+          {/* <h3>
             {stop.city}, {stop.country}
           </h3>
           <p>
@@ -37,7 +44,7 @@ export default function RouteTimeline({ itinerary }) {
             {new Date(stop.departureDate).toLocaleDateString()}
           </p>
           <p>Status: {getStatus(stop.arrivalDate, stop.departureDate)}</p>
-          <p>Country Slug: {stop.country.toLowerCase().replace(/ /g, "-")}</p>
+          <p>Country Slug: {stop.country.toLowerCase().replace(/ /g, "-")}</p> */}
 
           {index < itinerary.length - 1 && (
             <div className="timeline-connector">
