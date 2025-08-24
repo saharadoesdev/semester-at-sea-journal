@@ -1,12 +1,12 @@
 'use client';
 import { useState } from "react";
-import { approveMessageAction } from "@/app/actions";
+import { handleAddTerm } from "@/app/actions";
 
 export default function GlossaryManager({ initialGlossary }) {
   const [glossary, setGlossary] = useState(initialGlossary || []);
 
-  const handleAdd = async (term, definition) => {
-    const result = await approveMessageAction({ term, definition });
+  const handleAddTerm = async (term, definition) => {
+    const result = await approveTermAction({ term, definition });
     if (result.success) {
       setGlossary((prev) => [...prev, { term, definition }]);
     } else {
@@ -16,38 +16,31 @@ export default function GlossaryManager({ initialGlossary }) {
 
   return (
     <div>
-      {/* <table style={{ borderSpacing: "18px" }} className="messages-table">
+      <table style={{ borderSpacing: "18px" }} className="terms-table">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Author</th>
-            <th>Relation</th>
-            <th>Content</th>
-            <th>Status</th>
+            <th>Term</th>
+            <th>Definition</th>
+            <th>Action</th>
           </tr>
-        </thead> */}
-        {/* <tbody>
-          {messages.map((message) => (
-            <tr key={message.id}>
+        </thead>
+        <tbody>
+          {glossary.map((term) => (
+            <tr key={term.id}>
+              <td>{term.term}</td>
+              <td>{term.definition}</td>
               <td>
-                {new Date(message.created_at).toLocaleDateString()}{" "}
-                {new Date(message.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-              </td>
-              <td>{message.author_name}</td>
-              <td>{message.relation}</td>
-              <td>{message.content}</td>
-              <td>{message.status}</td>
-              <td>
-                {message.status !== "approved" && (
-                  <button onClick={() => handleApprove(message.id)}>
+                Edit and Delete Buttons will go here
+                {/* {term.status !== "approved" && (
+                  <button onClick={() => handleApprove(term.id)}>
                     Approve
                   </button>
-                )}
+                )} */}
               </td>
             </tr>
           ))}
-        </tbody> */}
-      {/* </table> */}
+        </tbody>
+      </table>
     </div>
   );
 }
