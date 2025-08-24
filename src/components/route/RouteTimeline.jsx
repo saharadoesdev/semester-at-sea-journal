@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 export default function RouteTimeline({ itinerary }) {
   //   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(
-    new Date("2025-10-26T10:01:00")
+    new Date("2025-10-15T19:00+00:00")
   );
 
   // ensures date is fresh on client side
   useEffect(() => {
     // setCurrentDate(new Date());
-    setCurrentDate(new Date("2025-10-26T10:01:00"));
+    setCurrentDate(new Date("2025-10-15T19:00+00:00"));
   }, []);
 
   const getStatus = (arrival, departure) => {
