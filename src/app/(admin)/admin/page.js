@@ -3,6 +3,7 @@ import styles from "../../page.module.css";
 import { createClient } from "@/utils/supabase/client";
 import PostsManager from '@/components/admin/PostsManager';
 import MessageManager from '@/components/admin/MessageManager';
+import GlossaryManager from '@/components/admin/GlossaryManager';
 
 export default async function AdminPage() {
   const supabase = createClient();
@@ -15,6 +16,11 @@ export default async function AdminPage() {
     .from('Messages')
     .select('id, content, created_at, author_name, relation, status')
     .order('created_at', { ascending: false });
+
+  const { data: glossary, error: glossaryError } = await supabase
+    .from('Glossary')
+    .select('id, term, definition')
+    .order('term', { ascending: true });
 
   // async function handleLogout() {
   //   await supabase.auth.signOut();
@@ -36,6 +42,7 @@ export default async function AdminPage() {
       <h1>Manage Messages</h1>
       <MessageManager initialMessages={messages} />
       <br /><br /><br />
+      <GlossaryManager initialGlossary={glossary} />
     </div>
   );
 }

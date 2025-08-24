@@ -8,6 +8,5 @@ export default async function GlossaryPage() {
     .select()
     .order("term", { ascending: true });
 
-    console.log(terms)
   return <GlossaryDisplay terms={terms || []} />;
 }
