@@ -118,7 +118,7 @@ export default async function Home() {
           Explore the world with me as I document my travels on my Semester at
           Sea journey.
         </p>
-        <h3 style={{ textAlign: 'center' }}>{`Over the next 100 days, I'll be visiting 11 countries across three continents. `}<Link style={{ color: '#fb6962', textDecoration: 'underline' }} href="/itinerary">Explore the full itinerary.</Link></h3>
+        <h3 style={{ textAlign: 'center' }}>{`Over the next 100 days, I'll be visiting 11 countries across three continents. `}<Link style={{ color: '#fb6962', textDecoration: 'underline' }} href="/route">Explore the full itinerary.</Link></h3>
         <br /><br />
         {/* <div className={styles.JournalCards}>
         <JournalCard />
