@@ -22,7 +22,9 @@ export default async function CountryPage({ params }) {
   const validSlugs = [...new Set(countryNames)].map((country) =>
     country.toLowerCase().replace(/ /g, "-")
   );
-  if (!validSlugs.includes(params.slug)) {
+
+  const resolvedParams = await params;
+  if (!validSlugs.includes(resolvedParams.slug)) {
     notFound();
   }
 
