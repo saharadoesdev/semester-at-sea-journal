@@ -1,12 +1,14 @@
 'use client';
 import { useState } from "react";
-import { handleAddTerm } from "@/app/actions";
+// import { submitGlossaryTerm } from "@/app/actions";
 
 export default function GlossaryManager({ initialGlossary }) {
   const [glossary, setGlossary] = useState(initialGlossary || []);
+  const [formData, setFormData] = useState({ term: "", definition: "" });
 
-  const handleAddTerm = async (term, definition) => {
-    const result = await approveTermAction({ term, definition });
+  const handleSubmit = async (term, definition) => {
+    // const result = await submitGlossaryTerm({ term, definition });
+    const result = { success: true };
     if (result.success) {
       setGlossary((prev) => [...prev, { term, definition }]);
     } else {
@@ -14,8 +16,32 @@ export default function GlossaryManager({ initialGlossary }) {
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="term"
+          placeholder="Term"
+          value={formData.term}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="definition"
+          placeholder="Definition"
+          value={formData.definition}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Add Term</button>
+      </form>
       <table style={{ borderSpacing: "18px" }} className="terms-table">
         <thead>
           <tr>
