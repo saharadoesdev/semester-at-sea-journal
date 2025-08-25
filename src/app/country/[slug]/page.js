@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import itinerary from "@/data/itinerary.json";
+import { createClient } from "@/utils/supabase/server";
 import styles from "@/app/page.module.css";
 
 // this function runs once at build time to generate all the country pages
@@ -28,9 +29,17 @@ export default async function CountryPage({ params }) {
     notFound();
   }
 
+  const supabase = await createClient();
+  const { data: countryData } = await supabase
+    .from('Countries')
+    .select('*')
+    .eq('slug', resolvedParams.slug)
+    .single(); // .single() expects only one result
+
   return (
     <div className={styles.page}>
-      <h1> hey is this thing on ? </h1>
+      {/* <CountryPageDisplay country={resolvedParams.slug} /> */}
+      {/* <h1> hey is this thing on ? </h1> */}
     </div>
   );
 }
