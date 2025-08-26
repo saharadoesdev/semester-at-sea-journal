@@ -3,11 +3,12 @@ import Link from 'next/link';
 import styles from "@/app/page.module.css";
 
 export async function generateMetadata({ params }) {
+  const { slug } = await params;
   const supabase = await createClient();
   const { data: post } = await supabase
     .from("JournalEntries")
     .select("title")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single();
 
   return {
