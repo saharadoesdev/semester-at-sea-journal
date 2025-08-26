@@ -2,6 +2,13 @@
 import { useState } from "react";
 import styles from "../page.module.css";
 
+export const metadata = {
+  title: "About | Sahara at Sea",
+  openGraph: {
+    title: "About | Sahara at Sea",
+  },
+};
+
 function CounterButton() {
     const [count, setCount] = useState(0);
 

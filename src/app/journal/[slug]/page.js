@@ -2,6 +2,19 @@ import { createClient } from "@/utils/supabase/server";
 import Link from 'next/link';
 import styles from "@/app/page.module.css";
 
+export async function generateMetadata({ params }) {
+  const supabase = await createClient();
+  const { data: post } = await supabase
+    .from("JournalEntries")
+    .select("title")
+    .eq("slug", params.slug)
+    .single();
+
+  return {
+    title: post?.title ? `${post.title} | Sahara at Sea` : "Post Not Found | Sahara at Sea",
+  };
+}
+
 const DetailPage = async ({ params }) => {
   const { slug } = await params;
     const supabase = await createClient();

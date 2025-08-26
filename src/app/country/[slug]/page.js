@@ -4,6 +4,21 @@ import { createClient } from "@/utils/supabase/server";
 import styles from "@/app/page.module.css";
 import CountryPageDisplay from "@/components/country/CountryPageDisplay";
 
+export async function generateMetadata({ params }) {
+  const supabase = await createClient();
+  const { data: country } = await supabase
+    .from('Countries')
+    .select('name')
+    .eq('slug', params.slug)
+    .single();
+
+  return {
+    title: country?.name
+      ? `${country.name} | Sahara at Sea`
+      : "Country Not Found | Sahara at Sea",
+  };
+}
+
 // this function runs once at build time to generate all the country pages
 export async function generateStaticParams() {
   const countryNames = itinerary.map((stop) => stop.country);

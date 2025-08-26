@@ -3,6 +3,13 @@ import { redirect } from "next/navigation";
 import PostEditor from "@/components/admin/PostEditor";
 import styles from "@/app/page.module.css";
 
+export const metadata = {
+  title: "Edit Post | Sahara at Sea",
+  openGraph: {
+    title: "Edit Post | Sahara at Sea",
+  },
+};
+
 export default async function EditPostPage({ params }) {
   const { slug } = await params;
   const supabase = await createClient();

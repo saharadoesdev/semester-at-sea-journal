@@ -2,6 +2,13 @@ import itinerary from "@/data/itinerary.json";
 import RouteTimeline from "@/components/route/RouteTimeline";
 import styles from "../page.module.css";
 
+export const metadata = {
+  title: "The Route | Sahara at Sea",
+  openGraph: {
+    title: "The Route | Sahara at Sea",
+  },
+};
+
 export default async function RoutePage() {
   function groupItineraryByCountry(itinerary) {
     const grouped = [];

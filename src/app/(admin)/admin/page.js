@@ -5,6 +5,13 @@ import PostsManager from '@/components/admin/PostsManager';
 import MessageManager from '@/components/admin/MessageManager';
 import GlossaryManager from '@/components/admin/GlossaryManager';
 
+export const metadata = {
+  title: "Admin | Sahara at Sea",
+  openGraph: {
+    title: "Admin | Sahara at Sea",
+  },
+};
+
 export default async function AdminPage() {
   const supabase = createClient();
   const { data: posts, error: postsError } = await supabase

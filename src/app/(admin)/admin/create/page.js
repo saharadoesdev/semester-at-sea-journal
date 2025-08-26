@@ -3,6 +3,13 @@ import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 import styles from "@/app/page.module.css";
 
+export const metadata = {
+  title: "Create Post | Sahara at Sea",
+  openGraph: {
+    title: "Create Post | Sahara at Sea",
+  },
+};
+
 export default function CreatePostPage() {
   const handleCreatePost = async (formData) => {
     'use server';
