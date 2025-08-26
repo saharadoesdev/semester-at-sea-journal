@@ -5,6 +5,8 @@ import PostsManager from '@/components/admin/PostsManager';
 import MessageManager from '@/components/admin/MessageManager';
 import GlossaryManager from '@/components/admin/GlossaryManager';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "Admin | Sahara at Sea",
   openGraph: {

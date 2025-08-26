@@ -20,7 +20,7 @@ export async function submitMessageAction(formData) {
     return { success: false, error: error.message };
   }
 
-  revalidatePath("/admin/messages");
+  revalidatePath("/admin");
 
   return { success: true };
 }
@@ -28,9 +28,14 @@ export async function submitMessageAction(formData) {
 export async function approveMessageAction({ messageId }) {
   const supabase = await createAdminClient();
 
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
-    return { success: false, error: "You must be logged in to approve messages." };
+    return {
+      success: false,
+      error: "You must be logged in to approve messages.",
+    };
   }
 
   const { error } = await supabase
@@ -42,13 +47,17 @@ export async function approveMessageAction({ messageId }) {
     return { success: false, error: error.message };
   }
 
+  revalidatePath("/message-wall");
+
   return { success: true };
 }
 
 export async function submitGlossaryTerm(formData) {
   const supabase = await createAdminClient();
 
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
     return { success: false, error: "You must be logged in to add terms." };
   }
@@ -60,6 +69,8 @@ export async function submitGlossaryTerm(formData) {
   if (error) {
     return { success: false, error: error.message };
   }
+
+  revalidatePath("/glossary");
 
   return { success: true };
 }
