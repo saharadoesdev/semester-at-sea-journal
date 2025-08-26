@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, GeoJSON, Marker, Popup, Polyline } from "react
 import "leaflet/dist/leaflet.css";
 import { useState, useEffect } from "react";
 import L from "leaflet";
+import Link from "next/link";
 import styles from "./MapContainer.module.css";
 
 export default function Map(mapProps) {
@@ -33,6 +34,8 @@ export default function Map(mapProps) {
   const completedPathOptions = { color: 'white', weight: 2, opacity: 0.8 };
 
   const futurePathOptions = { color: 'white', weight: 2, opacity: 0.8, dashArray: '7, 10' };
+
+  const [popupInfo, setPopupInfo] = useState(null);
 
   useEffect(() => {
     fetch("/countries.json")
@@ -95,7 +98,12 @@ export default function Map(mapProps) {
   function onEachCountry(country, layer) {
     layer.on("click", (e) => {
       // router.push(`/journal/${country.properties.name}`);
-      alert(`You clicked on ${country.properties.name}`);
+      // alert(`You clicked on ${country.properties.name}`);
+      // layer.bindPopup(country.properties.name).openPopup();
+      setPopupInfo({
+        name: country.properties.name,
+        latlng: e.latlng,
+      });
     });
   }
 
@@ -129,6 +137,25 @@ export default function Map(mapProps) {
         <Marker position={currentShipPosition} icon={shipIcon}>
             <Popup>My current location! Heading to Ghana next.</Popup>
         </Marker>
+
+        {popupInfo && (
+          <Popup
+            position={popupInfo.latlng}
+            eventHandlers={{
+              remove: () => setPopupInfo(null),
+            }}
+          >
+            <div>
+              <strong>{popupInfo.name}</strong>
+              <br />
+              <Link href={`/country/${popupInfo.name.toLowerCase().replace(/ /g, '-')}`}>
+                <span style={{ color: "#0070f3", textDecoration: "underline", cursor: "pointer" }}>
+                  Explore this country &rarr;
+                </span>
+              </Link>
+            </div>
+          </Popup>
+        )}
         </MapContainer>
     </div>
   );
