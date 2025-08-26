@@ -1,6 +1,7 @@
 import PostEditor from '@/components/admin/PostEditor';
 import { createClient } from '@/utils/supabase/admin';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from "next/cache";
 import styles from "@/app/page.module.css";
 
 export const metadata = {
@@ -48,10 +49,14 @@ export default function CreatePostPage() {
         image_urls,
         tags,
     };
-    console.log(post)
+    // console.log(post)
     const { data, error } = await supabase.from('JournalEntries').insert([post]).select();
-    console.log("Supabase insert result:", { data, error });
+    // console.log("Supabase insert result:", { data, error });
     if (!error) {
+      await revalidatePath('/');
+      await revalidatePath('/journal');
+      // await revalidatePath('/country/[countrys slug]'); // need to figure out how to do this
+      await revalidatePath(`/journal/${post.slug}`);
       redirect(`/admin`);
     }
   };

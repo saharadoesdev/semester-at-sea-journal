@@ -71,6 +71,13 @@ export default async function EditPostPage({ params }) {
       .eq("id", post.id);
 
     if (!error) {
+      await revalidatePath('/');
+      await revalidatePath('/journal');
+      // await revalidatePath('/country/[countrys slug]'); // need to figure out how to do this
+      if (post.slug !== updatedPost.slug) { // if slug changed
+        await revalidatePath(`/journal/${post.slug}`);
+      }
+      await revalidatePath(`/journal/${updatedPost.slug}`);
       redirect(`/admin`);
     }
   };
