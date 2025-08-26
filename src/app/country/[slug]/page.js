@@ -38,11 +38,11 @@ export default async function CountryPage({ params }) {
     .single();
 
   const { data: posts } = await supabase
-    .from('posts')
+    .from('JournalEntries')
     .select('*')
-    .contains('tags', [countryData.name]) 
-    .eq('is_published', true)
+    .contains('tags', [countryData.name])
     .order('display_date', { ascending: true });
+  console.log("posts", posts);
 
   return (
     <div className={styles.page}>
