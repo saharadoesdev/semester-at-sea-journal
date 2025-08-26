@@ -9,6 +9,8 @@ export const metadata = {
   },
 };
 
+export const revalidate = 3600; // revalidates every hour
+
 export default async function RoutePage() {
   function groupItineraryByCountry(itinerary) {
     const grouped = [];

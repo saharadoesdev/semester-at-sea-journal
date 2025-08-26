@@ -47,6 +47,7 @@ export async function approveMessageAction({ messageId }) {
     return { success: false, error: error.message };
   }
 
+  revalidatePath("/admin");
   revalidatePath("/message-wall");
 
   return { success: true };
