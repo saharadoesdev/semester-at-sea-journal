@@ -5,11 +5,13 @@ import styles from "@/app/page.module.css";
 import CountryPageDisplay from "@/components/country/CountryPageDisplay";
 
 export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+
   const supabase = await createClient();
   const { data: country } = await supabase
     .from('Countries')
     .select('name')
-    .eq('slug', params.slug)
+    .eq('slug', resolvedParams.slug)
     .single();
 
   return {
@@ -57,7 +59,7 @@ export default async function CountryPage({ params }) {
     .select('*')
     .contains('tags', [countryData.name])
     .order('display_date', { ascending: true });
-  console.log("posts", posts);
+  // console.log("posts", posts);
 
   return (
     <div className={styles.page}>
