@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import itinerary from "@/data/itinerary.json";
 import { createClient } from "@/utils/supabase/server";
 import styles from "@/app/page.module.css";
+import CountryPageDisplay from "@/components/country/CountryPageDisplay";
 
 // this function runs once at build time to generate all the country pages
 export async function generateStaticParams() {
@@ -34,11 +35,18 @@ export default async function CountryPage({ params }) {
     .from('Countries')
     .select('*')
     .eq('slug', resolvedParams.slug)
-    .single(); // .single() expects only one result
+    .single();
+
+  const { data: posts } = await supabase
+    .from('posts')
+    .select('*')
+    .contains('tags', [countryData.name]) 
+    .eq('is_published', true)
+    .order('display_date', { ascending: true });
 
   return (
     <div className={styles.page}>
-      {/* <CountryPageDisplay country={resolvedParams.slug} /> */}
+      <CountryPageDisplay country={countryData} posts={posts || []} />
       {/* <h1> hey is this thing on ? </h1> */}
     </div>
   );
