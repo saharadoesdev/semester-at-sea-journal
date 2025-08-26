@@ -27,13 +27,19 @@ export default function CreatePostPage() {
       }
     }
 
+    const tagsString = formData.get('tags') || "";
+    const tags = tagsString
+      .split(',')
+      .map(tag => tag.trim())
+      .filter(tag => tag.length > 0);
+
     const post = {
         title: formData.get('title') || "",
         slug: formData.get('slug') || "",
         content: formData.get('content') || "",
         display_date: formData.get('displayDate') || null,
         image_urls,
-        tags: formData.getAll('tags'),
+        tags,
     };
     console.log(post)
     const { data, error } = await supabase.from('JournalEntries').insert([post]).select();

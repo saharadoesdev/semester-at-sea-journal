@@ -4,7 +4,7 @@ import PostEditor from "@/components/admin/PostEditor";
 import styles from "@/app/page.module.css";
 
 export default async function EditPostPage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const supabase = await createClient();
   const { data: post, error: fetchError } = await supabase
     .from("JournalEntries")
@@ -43,13 +43,19 @@ export default async function EditPostPage({ params }) {
     }
     const image_urls = [...existingImageUrls, ...newImageUrls];
 
+    const tagsString = formData.get('tags') || "";
+    const tags = tagsString
+      .split(',')
+      .map(tag => tag.trim())
+      .filter(tag => tag.length > 0);
+
     const updatedPost = {
       title: formData.get("title") || "",
       slug: formData.get("slug") || "",
       content: formData.get("content") || "",
       display_date: formData.get("displayDate") || null,
       image_urls,
-      tags: formData.getAll("tags"),
+      tags: tags,
     };
 
     const { data, error } = await supabase
