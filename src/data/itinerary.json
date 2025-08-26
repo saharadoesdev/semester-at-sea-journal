@@ -1,5 +1,6 @@
 [
     {
+        "type": "port",
         "city": "IJmuiden",
         "country": "Netherlands",
         "arrivalDate": "2025-08-31T08:00+02:00",
@@ -9,6 +10,31 @@
         "portCoords": [52.4598, 4.5688]
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [50.9821, 1.4443]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [48.5231, -5.7570]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [46.9560, -3.7684]
+    },
+    {
+        "type": "port",
         "city": "Nantes",
         "country": "France",
         "arrivalDate": "2025-09-15T11:30+02:00",
@@ -17,6 +43,39 @@
         "timezone": "Europe/Paris"
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [43.7544, -9.6907]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [36.6288, -9.9104]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [35.9196, -5.6169]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [36.4342, -4.4223]
+    },
+    {
+        "type": "port",
         "city": "Málaga",
         "country": "Spain",
         "arrivalDate": "2025-09-22T08:00+02:00",
@@ -25,6 +84,31 @@
         "timezone": "Europe/Madrid"
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [36.4342, -4.4223]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [35.9196, -5.6169]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [35.8155, -6.2570]
+    },
+    {
+        "type": "port",
         "city": "Casablanca",
         "country": "Morocco",
         "arrivalDate": "2025-09-28T08:00+01:00",
@@ -33,6 +117,55 @@
         "timezone": "Africa/Casablanca"
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [33.7766, -7.8502]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [28.5261, -21.0066]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [10.7951, -19.8642]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [2.8396, -16.6130]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [1.5381, -7.9135]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [4.1356, -0.5179]
+    },
+    {
+        "type": "port",
         "city": "Tema",
         "country": "Ghana",
         "arrivalDate": "2025-10-13T08:00+00:00",
@@ -42,6 +175,15 @@
         "portCoords": [5.6270, 0.0072]
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [4.9398, -0.7528]
+    },
+    {
+        "type": "port",
         "city": "Takoradi",
         "country": "Ghana",
         "arrivalDate": "2025-10-16T08:00+00:00",
@@ -51,6 +193,15 @@
         "portCoords": [4.8800, -1.7479]
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [-33.3725, 17.7974]
+    },
+    {
+        "type": "port",
         "city": "Cape Town",
         "country": "South Africa",
         "arrivalDate": "2025-10-26T08:00+02:00",
@@ -60,6 +211,47 @@
         "portCoords": [-33.9076, 18.4206]
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [-34.1691, 17.9927]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [-35.3466, 19.3236]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [-34.8927, 25.9986]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [-21.5561, 56.1068]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [-20.2216, 56.8099]
+    },
+    {
+        "type": "port",
         "city": "Port Louis",
         "country": "Mauritius",
         "arrivalDate": "2025-11-08T08:00+04:00",
@@ -68,6 +260,7 @@
         "timezone": "Indian/Mauritius"
     },
     {
+        "type": "port",
         "city": "Kochi",
         "country": "India",
         "arrivalDate": "2025-11-18T08:00+05:30",
@@ -77,6 +270,63 @@
         "portCoords": [9.9680, 76.2685]
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [4.7952, 76.8700]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [6.2605, 97.6238]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [1.6853, 102.5792]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [1.0597, 103.6366]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [1.2273, 103.9469]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [1.3674, 104.5263]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [11.1291, 110.0810]
+    },
+    {
+        "type": "port",
         "city": "Hong Kong",
         "country": "Hong Kong S.A.R.",
         "arrivalDate": "2025-12-10T08:00+08:00",
@@ -85,6 +335,23 @@
         "timezone": "Asia/Hong_Kong"
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [11.1291, 110.0810]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [10.0331, 107.0808]
+    },
+    {
+        "type": "port",
         "city": "Ho Chi Minh City",
         "country": "Vietnam",
         "arrivalDate": "2025-12-01T12:00+07:00",
@@ -94,6 +361,31 @@
         "portCoords": [10.7669, 106.7085]
     },
     {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [9.3176, 107.2092]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [7.1080, 102.7213]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [12.5968, 100.5851]
+    },
+    {
+        "type": "port",
         "city": "Bangkok",
         "country": "Thailand",
         "arrivalDate": "2025-12-22T08:00+07:00",

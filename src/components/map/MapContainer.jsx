@@ -1,6 +1,6 @@
 "use client";
 
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, Polyline, useMapEvent } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState, useEffect } from "react";
 import L from "leaflet";
@@ -8,6 +8,12 @@ import Link from "next/link";
 import styles from "./MapContainer.module.css";
 
 export default function Map(mapProps) {
+  // function MapClickAlert() {     // this is for finding waypoint positions
+  //   useMapEvent("click", (e) => {
+  //     alert(`Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`);
+  //   });
+  //   return null;
+  // }
   const position = [20, 0]; // Initial center of the map
 
   // placeholders; these will be passed in from page.js later
@@ -160,6 +166,9 @@ export default function Map(mapProps) {
             </div>
           </Popup>
         )}
+
+
+        {/* <MapClickAlert /> */}
         </MapContainer>
     </div>
   );
