@@ -16,6 +16,18 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// this function runs once at build time to generate all the journal entry pages
+export async function generateStaticParams() {
+  const supabase = await createClient();
+  const { data: posts } = await supabase
+    .from("JournalEntries")
+    .select("slug");
+
+  if (!posts) return [];
+
+  return posts.map(post => ({ slug: post.slug }));
+}
+
 const DetailPage = async ({ params }) => {
   const { slug } = await params;
     const supabase = await createClient();
