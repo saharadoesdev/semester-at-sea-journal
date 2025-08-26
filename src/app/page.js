@@ -3,6 +3,7 @@ import MapDynamicWrapper from "../components/map/MapDynamicWrapper";
 import LocalTime from "@/components/map/LocalTime";
 import JournalArchive from "@/components/journal/JournalArchive";
 import Link from 'next/link';
+import Arc from 'arc';
 import itinerary from "@/data/itinerary.json";
 import styles from "./page.module.css";
 
@@ -70,6 +71,18 @@ export default async function Home() {
       return { status: 'Completed' };
     }
   }
+  
+  function generateCurvedPath(startCoords, endCoords) {
+    const start = { x: startCoords[1], y: startCoords[0] }; // lng, lat
+    const end = { x: endCoords[1], y: endCoords[0] }; // lng, lat
+
+    const generator = new Arc.GreatCircle(start, end);
+    
+    const line = generator.Arc(50); // generates 50 points along arc
+    
+    // coords are [lng, lat]; need to flip for leaflet
+    return line.geometries[0].coords.map(([lng, lat]) => [lat, lng]);
+  }
 
   function calculatePaths(itinerary, travelStatus) {
     if (travelStatus.status === 'Not Started' || travelStatus.status === 'Completed') {
@@ -92,9 +105,29 @@ export default async function Home() {
 
     if (lastPortIndex === -1) return { completedPath: [], futurePath: [] };
 
-    const completedPath = itinerary.slice(0, lastPortIndex + 1).map(stop => stop.coords);
+    // const completedPath = itinerary.slice(0, lastPortIndex + 1).map(stop => stop.coords);
 
-    const futurePath = itinerary.slice(lastPortIndex).map(stop => stop.coords);
+    // const futurePath = itinerary.slice(lastPortIndex).map(stop => stop.coords);
+
+    const completedPoints = itinerary.slice(0, lastPortIndex + 1);
+    const futurePoints = itinerary.slice(lastPortIndex);
+
+    const completedPath = [];
+    // Loop through each segment of the completed path
+    for (let i = 0; i < completedPoints.length - 1; i++) {
+      const start = completedPoints[i].coords;
+      const end = completedPoints[i + 1].coords;
+      // Generate the curve for this segment and add it to the final path
+      completedPath.push(...generateCurvedPath(start, end));
+    }
+
+    const futurePath = [];
+    // Loop through each segment of the future path
+    for (let i = 0; i < futurePoints.length - 1; i++) {
+      const start = futurePoints[i].coords;
+      const end = futurePoints[i + 1].coords;
+      futurePath.push(...generateCurvedPath(start, end));
+    }
 
     return { completedPath, futurePath };
   }
