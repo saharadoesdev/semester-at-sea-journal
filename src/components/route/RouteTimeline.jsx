@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import TimelineCard from './TimelineCard';
 
-export default function RouteTimeline({ itinerary }) {
+export default function RouteTimeline({ itinerary, flags }) {
   //   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(
     new Date("2025-10-15T19:00+00:00")
@@ -32,6 +32,7 @@ export default function RouteTimeline({ itinerary }) {
            <TimelineCard 
             city={stop.city}
             country={stop.country}
+            flag={flags[stop.country]}
             dates={`${new Date(stop.arrivalDate).toLocaleDateString()} - ${new Date(stop.departureDate).toLocaleDateString()}`}
             status={getStatus(stop.arrivalDate, stop.departureDate)}
             countrySlug={stop.country.toLowerCase().replace(/ /g, '-')}

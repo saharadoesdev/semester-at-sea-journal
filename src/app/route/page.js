@@ -1,3 +1,4 @@
+import { createClient } from "@/utils/supabase/server";
 import itinerary from "@/data/itinerary.json";
 import RouteTimeline from "@/components/route/RouteTimeline";
 import styles from "../page.module.css";
@@ -12,6 +13,18 @@ export const metadata = {
 export const revalidate = 3600; // revalidates every hour
 
 export default async function RoutePage() {
+  const supabase = await createClient();
+
+  const { data: countries, error: countriesError } = await supabase
+    .from("Countries")
+    .select("name, flag_emoji");
+  const countryFlags = {};
+  if (countries) {
+    countries.forEach((country) => {
+      countryFlags[country.name] = country.flag_emoji;
+    });
+  }
+
   function groupItineraryByCountry(itinerary) {
     const grouped = [];
 
@@ -50,7 +63,7 @@ export default async function RoutePage() {
           the journey.
         </p>
       </div>
-      <RouteTimeline itinerary={groupItineraryByCountry(itinerary)} />
+      <RouteTimeline itinerary={groupItineraryByCountry(itinerary)} flags={countryFlags} />
     </div>
   );
 }
