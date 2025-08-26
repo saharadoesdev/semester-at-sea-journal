@@ -1,5 +1,6 @@
 "use client";
 import styles from "@/app/page.module.css";
+import JournalArchive from "@/components/journal/JournalArchive";
 
 export default function CountryPageDisplay({ country, posts }) {
 
@@ -37,6 +38,7 @@ export default function CountryPageDisplay({ country, posts }) {
       </div>
       <div>
         <h2>Journal Posts</h2>
+        <JournalArchive posts={posts || []} />
         {/* {posts && posts.length > 0 ? (
           <ul>
             {posts.map((post) => (
