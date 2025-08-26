@@ -14,6 +14,16 @@ export default async function Home() {
     .order("created_at", { ascending: false })
     .limit(1); // probably increase later
 
+  const { data: countries, error: countriesError } = await supabase
+    .from("Countries")
+    .select("name, flag_emoji");
+  const countryFlags = {};
+  if (countries) {
+    countries.forEach((country) => {
+      countryFlags[country.name] = country.flag_emoji;
+    });
+  }
+
   function calculateTravelStatus(itinerary, currentDate) {
     for (let i = 0; i < itinerary.length; i++) {
       const currentStop = itinerary[i];
@@ -103,6 +113,7 @@ export default async function Home() {
     futurePath,
     currentShipPosition,
     itinerary,
+    countryFlags,
   };
 
   return (

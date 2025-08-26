@@ -15,7 +15,7 @@ export default function Map(mapProps) {
   // const currentCountry = "Spain";
   // const nextCountry = "Morocco";
   // const futureCountries = ["Ghana", "South Africa", "Mauritius", "India", "Hong Kong", "Vietnam", "Thailand"];
-  const { travelStatus, completedPath, futurePath, currentShipPosition, itinerary } = mapProps;
+  const { travelStatus, completedPath, futurePath, currentShipPosition, itinerary, countryFlags } = mapProps;
 
   const [geoJsonData, setGeoJsonData] = useState(null);
 
@@ -146,6 +146,10 @@ export default function Map(mapProps) {
             }}
           >
             <div>
+              <span style={{ fontSize: "1.5em" }}>
+                {countryFlags?.[popupInfo.name] || ""}
+              </span>
+              <br />
               <strong>{popupInfo.name}</strong>
               <br />
               <Link href={`/country/${popupInfo.name.toLowerCase().replace(/ /g, '-')}`}>
