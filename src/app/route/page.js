@@ -63,7 +63,7 @@ export default async function RoutePage() {
           the journey.
         </p>
       </div>
-      <RouteTimeline itinerary={groupItineraryByCountry(itinerary)} flags={countryFlags} />
+      <RouteTimeline itinerary={groupItineraryByCountry(itinerary.filter(stop => stop.type === "port"))} flags={countryFlags} />
     </div>
   );
 }

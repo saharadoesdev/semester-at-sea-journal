@@ -23,9 +23,7 @@ export async function generateMetadata({ params }) {
 
 // this function runs once at build time to generate all the country pages
 export async function generateStaticParams() {
-  const countryNames = itinerary.map((stop) => stop.country);
-  // note - i'll have to change this line ^^ to filter for ports only
-  // (later, after i add waypoint stops to the itinerary)
+  const countryNames = itinerary.filter(stop => stop.type === "port").map((stop) => stop.country);
 
   const uniqueCountries = [...new Set(countryNames)];
 
@@ -36,7 +34,7 @@ export async function generateStaticParams() {
 
 export default async function CountryPage({ params }) {
   // check to make sure you're actually at a valid country URL
-  const countryNames = itinerary.map((stop) => stop.country);
+  const countryNames = itinerary.filter(stop => stop.type === "port").map((stop) => stop.country);
 
   const validSlugs = [...new Set(countryNames)].map((country) =>
     country.toLowerCase().replace(/ /g, "-")
