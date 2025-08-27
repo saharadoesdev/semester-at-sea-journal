@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/admin";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import PostEditor from "@/components/admin/PostEditor";
 import styles from "@/app/page.module.css";
 
