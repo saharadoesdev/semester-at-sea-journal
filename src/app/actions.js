@@ -75,3 +75,28 @@ export async function submitGlossaryTerm(formData) {
 
   return { success: true };
 }
+
+export async function deletePostAction({ postId, postSlug }) {
+  const supabase = await createAdminClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    return { success: false, error: "You must be logged in to delete posts." };
+  }
+
+  const { error } = await supabase
+    .from("JournalEntries")
+    .delete()
+    .eq("id", postId);
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  revalidatePath("/");
+  revalidatePath("/admin");
+  revalidatePath("/journal");
+  revalidatePath(`/journal/${postSlug}`);
+
+  return { success: true };
+}
