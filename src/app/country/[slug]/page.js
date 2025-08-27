@@ -59,12 +59,14 @@ export default async function CountryPage({ params }) {
     .select('*')
     .contains('tags', [countryData.name])
     .order('display_date', { ascending: true });
-  // console.log("posts", posts);
+
+  const countryStop = itinerary.find(stop => stop.country === countryData.name);
+  const arrivalDate = new Date(countryStop.arrivalDate);
+  const isUnlocked = new Date() >= arrivalDate;
 
   return (
     <div className={styles.page}>
-      <CountryPageDisplay country={countryData} posts={posts || []} />
-      {/* <h1> hey is this thing on ? </h1> */}
+      <CountryPageDisplay country={countryData} posts={posts || []} isUnlocked={isUnlocked} />
     </div>
   );
 }

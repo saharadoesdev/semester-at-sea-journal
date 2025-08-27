@@ -2,7 +2,7 @@
 import styles from "@/app/page.module.css";
 import JournalArchive from "@/components/journal/JournalArchive";
 
-export default function CountryPageDisplay({ country, posts }) {
+export default function CountryPageDisplay({ country, posts, isUnlocked }) {
 
   let fastFacts = country.fast_facts;
   if (typeof fastFacts === "string") {
