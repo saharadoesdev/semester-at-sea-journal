@@ -22,7 +22,7 @@ export default function PostsManager({ initialPosts }) {
           {posts.map((post) => (
             <tr key={post.id}>
               <td>{post.title}</td>
-              <td>{new Date(post.display_date).toLocaleDateString()}</td>
+              <td>{new Date(post.display_date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</td>
               <td>
                 <Link href={`/admin/edit/${post.slug}`}>Edit</Link>
                 {/* need another small component for delete */}
