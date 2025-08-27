@@ -60,7 +60,8 @@ export default async function CountryPage({ params }) {
 
   const countryStop = itinerary.find(stop => stop.country === countryData.name);
   const arrivalDate = new Date(countryStop.arrivalDate);
-  const isUnlocked = new Date() >= arrivalDate;
+  // const isUnlocked = new Date() >= arrivalDate;
+  const isUnlocked = new Date("2025-10-15T19:00+00:00") >= arrivalDate;
 
   return (
     <div className={styles.page}>
