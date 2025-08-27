@@ -58,6 +58,8 @@ export default async function CountryPage({ params }) {
     .contains('tags', [countryData.name])
     .order('display_date', { ascending: true });
 
+  const allImages = posts.flatMap(post => post.image_urls);
+
   const countryStop = itinerary.find(stop => stop.country === countryData.name);
   const arrivalDate = new Date(countryStop.arrivalDate);
   // const isUnlocked = new Date() >= arrivalDate;
@@ -65,7 +67,7 @@ export default async function CountryPage({ params }) {
 
   return (
     <div className={styles.page}>
-      <CountryPageDisplay country={countryData} posts={posts || []} isUnlocked={isUnlocked} />
+      <CountryPageDisplay country={countryData} posts={posts || []} isUnlocked={isUnlocked} photos={allImages || []} />
     </div>
   );
 }

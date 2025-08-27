@@ -1,8 +1,9 @@
 "use client";
 import styles from "@/app/page.module.css";
 import JournalArchive from "@/components/journal/JournalArchive";
+import PhotoGallery from "@/components/country/PhotoGallery";
 
-export default function CountryPageDisplay({ country, posts, isUnlocked }) {
+export default function CountryPageDisplay({ country, posts, isUnlocked, photos }) {
 
   let fastFacts = country.fast_facts;
   if (typeof fastFacts === "string") {
@@ -14,7 +15,7 @@ export default function CountryPageDisplay({ country, posts, isUnlocked }) {
   }
 
   if (isUnlocked) {
-    return <UnlockedView country={country} posts={posts} />;
+    return <UnlockedView country={country} posts={posts} photos={photos} />;
   } else {
     return <LockedView country={country} />;
   }
@@ -67,7 +68,7 @@ export default function CountryPageDisplay({ country, posts, isUnlocked }) {
 }
 
 
-function UnlockedView({ country, posts }) {
+function UnlockedView({ country, posts, photos }) {
   // Prepare the data for the photo gallery
   const allImages = posts.flatMap(post => post.image_urls);
 
@@ -99,7 +100,7 @@ function UnlockedView({ country, posts }) {
       {/* 4. The Photo Gallery */}
       <section className="gallery-section">
         <h2>Photo Gallery</h2>
-        {/* <PhotoGallery images={allImages} /> */}
+        <PhotoGallery images={photos} />
       </section>
 
       {/* 5. The "Mission Accomplished" Section */}
