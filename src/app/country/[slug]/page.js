@@ -55,7 +55,7 @@ export default async function CountryPage({ params }) {
   const { data: posts } = await supabase
     .from('JournalEntries')
     .select('*')
-    .contains('tags', [countryData.name])
+    .contains('tags', [countryData.name.toLowerCase()])
     .order('display_date', { ascending: true });
 
   const allImages = posts.flatMap(post => post.image_urls);
