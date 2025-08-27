@@ -323,32 +323,7 @@
         "country": null,
         "arrivalDate": "2025-09-25T12:00:00Z",
         "departureDate": "2025-09-25T12:00:00Z",
-        "coords": [11.1291, 110.0810]
-    },
-    {
-        "type": "port",
-        "city": "Hong Kong",
-        "country": "Hong Kong S.A.R.",
-        "arrivalDate": "2025-12-10T08:00+08:00",
-        "departureDate": "2025-12-15T18:00+08:00",
-        "coords": [22.3193, 114.1694],
-        "timezone": "Asia/Hong_Kong"
-    },
-    {
-        "type": "waypoint",
-        "city": null,
-        "country": null,
-        "arrivalDate": "2025-09-25T12:00:00Z",
-        "departureDate": "2025-09-25T12:00:00Z",
-        "coords": [11.1291, 110.0810]
-    },
-    {
-        "type": "waypoint",
-        "city": null,
-        "country": null,
-        "arrivalDate": "2025-09-25T12:00:00Z",
-        "departureDate": "2025-09-25T12:00:00Z",
-        "coords": [10.0331, 107.0808]
+        "coords": [9.3176, 107.2092]
     },
     {
         "type": "port",
@@ -366,7 +341,32 @@
         "country": null,
         "arrivalDate": "2025-09-25T12:00:00Z",
         "departureDate": "2025-09-25T12:00:00Z",
-        "coords": [9.3176, 107.2092]
+        "coords": [10.0331, 107.0808]
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [11.1291, 110.0810]
+    },
+    {
+        "type": "port",
+        "city": "Hong Kong",
+        "country": "Hong Kong S.A.R.",
+        "arrivalDate": "2025-12-10T08:00+08:00",
+        "departureDate": "2025-12-15T18:00+08:00",
+        "coords": [22.3193, 114.1694],
+        "timezone": "Asia/Hong_Kong"
+    },
+    {
+        "type": "waypoint",
+        "city": null,
+        "country": null,
+        "arrivalDate": "2025-09-25T12:00:00Z",
+        "departureDate": "2025-09-25T12:00:00Z",
+        "coords": [8.7955, 109.6995]
     },
     {
         "type": "waypoint",
