@@ -6,9 +6,13 @@ const nextConfig = {
     },
   },
   images: {
-    domains: [
-      "ktixvtejyglnseqaoyds.supabase.co"
-    ],
+    remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "ktixvtejyglnseqaoyds.supabase.co",
+      pathname: "/storage/v1/object/public/images/**",
+    },
+  ],
   },
   async redirects() {
     return [
