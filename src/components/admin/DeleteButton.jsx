@@ -1,16 +1,15 @@
 'use client';
 import { useTransition } from 'react';
-import { deletePostAction } from '@/app/actions';
 
-export default function DeleteButton({ postId, postSlug }) {
+export default function DeleteButton({ itemId, itemLabel, deleteAction }) {
   const [isPending, startTransition] = useTransition();
 
   async function handleDelete() {
-    if (!window.confirm('Are you sure you want to delete this post?')) return;
+    if (!window.confirm(`Are you sure you want to delete this ${itemLabel || 'item'}?`)) return;
 
-    const result = await deletePostAction({ postId, postSlug });
+    const result = await deleteAction(itemId);
     if (!result.success) {
-      alert(result.error || 'Failed to delete post.');
+      alert(result.error || 'Failed to delete.');
     }
   }
 
