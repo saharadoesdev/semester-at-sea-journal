@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { deletePostAction } from "@/app/actions";
 import DeleteButton from './DeleteButton';
 
 export default function PostsManager({ initialPosts }) {
@@ -26,7 +27,11 @@ export default function PostsManager({ initialPosts }) {
               <td>{new Date(post.display_date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</td>
               <td>
                 <Link href={`/admin/edit/${post.slug}`}>Edit</Link>
-                <DeleteButton postId={post.id} postSlug={post.slug} />
+                <DeleteButton
+                  itemId={post.id}
+                  itemLabel="post"
+                  deleteAction={id => deletePostAction({ postId: id, postSlug: post.slug })}
+                />
               </td>
             </tr>
           ))}

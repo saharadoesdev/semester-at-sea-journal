@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
-import { submitGlossaryTerm } from "@/app/actions";
+import { submitGlossaryTerm, deleteGlossaryTermAction } from "@/app/actions";
+import DeleteButton from "./DeleteButton";
 
 export default function GlossaryManager({ initialGlossary }) {
   const [glossary, setGlossary] = useState(initialGlossary || []);
@@ -59,12 +60,12 @@ export default function GlossaryManager({ initialGlossary }) {
               <td>{term.term}</td>
               <td>{term.definition}</td>
               <td>
-                Edit and Delete Buttons will go here
-                {/* {term.status !== "approved" && (
-                  <button onClick={() => handleApprove(term.id)}>
-                    Approve
-                  </button>
-                )} */}
+                Edit will go here????
+                <DeleteButton
+                  itemId={term.id}
+                  itemLabel="glossary term"
+                  deleteAction={deleteGlossaryTermAction}
+                />
               </td>
             </tr>
           ))}

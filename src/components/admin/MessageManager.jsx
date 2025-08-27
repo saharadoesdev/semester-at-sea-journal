@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
-import { approveMessageAction } from "@/app/actions";
+import { approveMessageAction, deleteMessageAction } from "@/app/actions";
+import DeleteButton from "./DeleteButton";
 
 export default function MessageManager({ initialMessages }) {
   const [messages, setMessages] = useState(initialMessages || []);
@@ -47,6 +48,11 @@ export default function MessageManager({ initialMessages }) {
                     Approve
                   </button>
                 )}
+                <DeleteButton
+                  itemId={message.id}
+                  itemLabel="message"
+                  deleteAction={deleteMessageAction}
+                />
               </td>
             </tr>
           ))}
