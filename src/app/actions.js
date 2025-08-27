@@ -100,3 +100,49 @@ export async function deletePostAction({ postId, postSlug }) {
 
   return { success: true };
 }
+
+export async function deleteMessageAction(messageId) {
+  const supabase = await createAdminClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    return { success: false, error: "You must be logged in to delete messages." };
+  }
+
+  const { error } = await supabase
+    .from("Messages")
+    .delete()
+    .eq("id", messageId);
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  revalidatePath("/admin");
+  revalidatePath("/message-wall");
+
+  return { success: true };
+}
+
+export async function deleteGlossaryTermAction(termId) {
+  const supabase = await createAdminClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    return { success: false, error: "You must be logged in to delete glossary terms." };
+  }
+
+  const { error } = await supabase
+    .from("Glossary")
+    .delete()
+    .eq("id", termId);
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  revalidatePath("/admin");
+  revalidatePath("/glossary");
+  
+  return { success: true };
+}
