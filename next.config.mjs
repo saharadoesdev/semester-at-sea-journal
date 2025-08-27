@@ -5,6 +5,11 @@ const nextConfig = {
       bodySizeLimit: "30mb",
     },
   },
+  images: {
+    domains: [
+      "ktixvtejyglnseqaoyds.supabase.co"
+    ],
+  },
   async redirects() {
     return [
       {
