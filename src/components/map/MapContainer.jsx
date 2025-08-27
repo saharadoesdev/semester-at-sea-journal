@@ -28,8 +28,20 @@ export default function Map(mapProps) {
   // const currentShipPosition = calculateCurrentPosition(itinerary);
   // const currentShipPosition = [15.3, 73.8]; // placeholder
   const visitedCountries = travelStatus.visitedCountries || [];
-  const currentCountry = travelStatus.currentLocation.country || "";
-  const nextCountry = travelStatus.nextCountry || "";
+  // const currentCountry = travelStatus.currentLocation.country || "";
+  // const nextCountry = travelStatus.nextCountry || "";
+
+  let currentCountry = "";
+  let nextCountry = "";
+
+  if (travelStatus.status === "In Port" && travelStatus.currentLocation) {
+    currentCountry = travelStatus.currentLocation.country || "";
+  }
+  if (travelStatus.status === "At Sea" && travelStatus.nextPort) {
+    nextCountry = travelStatus.nextPort.country || "";
+  }
+
+
   const futureCountries = travelStatus.futureCountries || [];
 
   const shipIcon = new L.Icon({

@@ -33,9 +33,9 @@ export default async function Home() {
 
       // check if currently in a port
       if (currentDate >= arrivalTime && currentDate <= departureTime) {
-        const visitedCountries = itinerary.slice(0, i).map(stop => stop.country).filter(Boolean);
-        const futureCountries = itinerary.slice(i + 1).map(stop => stop.country).filter(Boolean);
-        
+        const visitedCountries = itinerary.slice(0, i).filter(stop => stop.type === "port").map(stop => stop.country).filter(Boolean);
+        const futureCountries = itinerary.slice(i + 1).filter(stop => stop.type === "port").map(stop => stop.country).filter(Boolean);
+
         return {
           status: 'In Port',
           currentLocation: currentStop,
@@ -46,17 +46,19 @@ export default async function Home() {
 
       // check if currently at sea
       if (i + 1 < itinerary.length) {
-        const nextStop = itinerary[i + 1];
-        const nextArrivalTime = new Date(nextStop.arrivalDate);
+        // const nextStop = itinerary[i + 1];
+        const nextPort = itinerary.slice(i + 1).find(stop => stop.type === "port");
+        const nextArrivalTime = new Date(nextPort.arrivalDate);
 
         if (currentDate > departureTime && currentDate < nextArrivalTime) {
-          const visitedCountries = itinerary.slice(0, i + 1).map(stop => stop.country).filter(Boolean);
-          const futureCountries = itinerary.slice(i + 2).map(stop => stop.country).filter(Boolean);
-
+          const visitedCountries = itinerary.slice(0, i + 1).filter(stop => stop.type === "port").map(stop => stop.country).filter(Boolean);
+          const futureCountries = itinerary.slice(i + 2).filter(stop => stop.type === "port").map(stop => stop.country).filter(Boolean);
+          
           return {
             status: 'At Sea',
             lastPort: currentStop,
-            nextPort: nextStop,
+            // nextPort: nextStop,
+            nextPort,
             visitedCountries: [...new Set(visitedCountries)],
             futureCountries: [...new Set(futureCountries)],
           };
@@ -132,7 +134,9 @@ export default async function Home() {
     return { completedPath, futurePath };
   }
 
-  const currentDate = new Date('2025-09-29T05:41:00.000Z');
+  // const currentDate = new Date('2025-09-29T05:41:00.000Z');
+  const currentDate = new Date('2025-12-17T05:41:00.000Z');
+  // const currentDate = new Date('2025-12-25T05:41:00.000Z');
 
   const travelStatus = calculateTravelStatus(itinerary, currentDate);
 
