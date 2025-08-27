@@ -67,11 +67,29 @@ export default async function Home() {
     }
 
     // if loop finishes, voyage is either not started or over
+    const allPortCountries = itinerary
+    .filter(stop => stop.type === "port")
+    .map(stop => stop.country)
+    .filter(Boolean);
+
     if (currentDate < new Date(itinerary[0].arrivalDate)) {
-      return { status: 'Not Started' };
+      return {
+        status: 'Not Started',
+        visitedCountries: [],
+        futureCountries: allPortCountries,
+      };
     } else {
-      return { status: 'Completed' };
+      return {
+        status: 'Completed',
+        visitedCountries: allPortCountries,
+        futureCountries: [],
+      };
     }
+    // if (currentDate < new Date(itinerary[0].arrivalDate)) {
+    //   return { status: 'Not Started' };
+    // } else {
+    //   return { status: 'Completed' };
+    // }
   }
   
   function generateCurvedPath(startCoords, endCoords) {
@@ -135,8 +153,9 @@ export default async function Home() {
   }
 
   // const currentDate = new Date('2025-09-29T05:41:00.000Z');
-  const currentDate = new Date('2025-12-17T05:41:00.000Z');
-  // const currentDate = new Date('2025-12-25T05:41:00.000Z');
+  // const currentDate = new Date('2025-12-17T05:41:00.000Z');
+  const currentDate = new Date('2025-12-25T05:41:00.000Z');
+  // const currentDate = new Date();
 
   const travelStatus = calculateTravelStatus(itinerary, currentDate);
 
