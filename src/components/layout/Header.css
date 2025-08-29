@@ -1,5 +1,6 @@
 .main-header {
-  background-color: #1f3351; /* semester at sea's blue */
+  /* background-color: #1f3351; semester at sea's blue */
+  background-color: var(--primary-blue);
   color: #fff;
   display: flex;
   align-items: center;
@@ -32,5 +33,6 @@ nav a {
 
 nav a:hover {
   color: #ffd700; /* gold/yellow on hover */
-  color: #fb6962; /* semester at sea's orange, idk if i'll use gold or orange */
+  /* color: #fb6962; semester at sea's orange, idk if i'll use gold or orange */
+  color: var(--accent-orange);
 }
