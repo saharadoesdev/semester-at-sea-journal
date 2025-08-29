@@ -4,7 +4,6 @@ import JournalCard from './JournalCard';
 
 const JournalArchive = (props) => {
   const posts = props.posts || [];
-  const loading = false;
   // const [searchQuery, setSearchQuery] = useState('')
   // const [sortBy, setSortBy] = useState('newest') // 'newest' or 'upvotes'
   // const [flagFilter, setFlagFilter] = useState('');
@@ -49,20 +48,19 @@ const JournalArchive = (props) => {
 
       {/* <div className={styles.JournalCards}> */}
       <div>
-        {loading ? (
-          <div className="loading-spinner"></div>
-        ) : posts && posts.length > 0 ? (
+        {posts && posts.length > 0 ? (
           [...posts]
-            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))    // Display newest first
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))    // display newest first
             .map((post, index) => (
               <JournalCard
                 key={post.id}
-                id={post.id}
-                title={post.title}
-                content={post.content}
-                date={post.display_date}
-                image={post.image_urls[0]}
-                slug={post.slug}
+                entry={post}
+                // id={post.id}
+                // title={post.title}
+                // content={post.content}
+                // date={post.display_date}
+                // image={post.image_urls[0]}
+                // slug={post.slug}
               />
             ))
         ) : (
