@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import itinerary from "@/data/itinerary.json";
 import RouteTimeline from "@/components/route/RouteTimeline";
-import styles from "../page.module.css";
+// import styles from "../page.module.css";
 
 export const metadata = {
   title: "The Route | Sahara at Sea",
@@ -55,7 +55,7 @@ export default async function RoutePage() {
   }
 
   return (
-    <div className={styles.page}>
+    <div>
       <div>
         <h1>The Route</h1>
         <p>

@@ -1,6 +1,6 @@
 "use client";
 import JournalCard from './JournalCard';
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 
 const JournalArchive = (props) => {
   const posts = props.posts || [];
@@ -47,7 +47,8 @@ const JournalArchive = (props) => {
             </select>
         </div> */}
 
-      <div className={styles.JournalCards}>
+      {/* <div className={styles.JournalCards}> */}
+      <div>
         {loading ? (
           <div className="loading-spinner"></div>
         ) : posts && posts.length > 0 ? (

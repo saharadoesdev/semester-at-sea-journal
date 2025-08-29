@@ -1,14 +1,14 @@
 "use client";
 // import { useState } from "react";
 // import GlossaryCard from "./GlossaryCard";
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 
 const GlossaryDisplay = (props) => {
   const terms = props.terms || [];
 
   return (
     <>
-      <div className={styles.page}>
+      <div>
         <div>
           <h1>Ship Lingo</h1>
           <h3>
@@ -22,10 +22,12 @@ const GlossaryDisplay = (props) => {
             <dl>
               {terms.map((glossary) => (
                 <div key={glossary.id}>
-                  <dt style={{ display: "inline", fontWeight: "bold" }}>
+                  {/* <dt style={{ display: "inline", fontWeight: "bold" }}> */}
+                  <dt>
                     {glossary.term}:{" "}
                   </dt>
-                  <dd style={{ display: "inline" }}>
+                  {/* <dd style={{ display: "inline" }}> */}
+                  <dd>
                     {glossary.definition}
                   </dd>
                 </div>

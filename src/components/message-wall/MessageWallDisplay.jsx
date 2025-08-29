@@ -2,7 +2,7 @@
 import { useState } from "react";
 import MessageCard from "./MessageCard";
 import MessageFormModal from "./MessageFormModal";
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 
 const MessageWallDisplay = (props) => {
   const messages = props.messages || [];
@@ -10,7 +10,8 @@ const MessageWallDisplay = (props) => {
 
   return (
     <>
-      <div className={styles.page}>
+      {/* <div className={styles.page}> */}
+      <div>
         <div>
           <h1>Message Wall</h1>
           <h3>Leave a note, ask a question, or share a thought!</h3>

@@ -2,7 +2,7 @@ import { createClient } from "@/utils/supabase/admin";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import PostEditor from "@/components/admin/PostEditor";
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 
 export const metadata = {
   title: "Edit Post | Sahara at Sea",
@@ -84,7 +84,7 @@ export default async function EditPostPage({ params }) {
   };
 
   return (
-    <div className={styles.page}>
+    <div>
       <h1>Edit Journal Entry</h1>
       <PostEditor initialData={post} action={handleEditPost} />
     </div>

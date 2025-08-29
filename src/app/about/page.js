@@ -1,6 +1,6 @@
 // 'use client'
 // import { useState } from "react";
-import styles from "../page.module.css";
+// import styles from "../page.module.css";
 
 export const metadata = {
   title: "About | Sahara at Sea",
@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className={styles.page}>
+    <div>
       <h1>About Me</h1>
       {/* <CounterButton /> */}
     </div>

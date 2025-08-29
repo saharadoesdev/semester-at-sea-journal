@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import itinerary from "@/data/itinerary.json";
 import { createClient } from "@/utils/supabase/server";
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 import CountryPageDisplay from "@/components/country/CountryPageDisplay";
 
 export async function generateMetadata({ params }) {
@@ -66,7 +66,7 @@ export default async function CountryPage({ params }) {
   const isUnlocked = new Date("2025-10-15T19:00+00:00") >= arrivalDate;
 
   return (
-    <div className={styles.page}>
+    <div>
       <CountryPageDisplay country={countryData} posts={posts || []} isUnlocked={isUnlocked} photos={allImages || []} />
     </div>
   );

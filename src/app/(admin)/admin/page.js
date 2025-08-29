@@ -1,5 +1,5 @@
 // import Link from 'next/link';
-import styles from "../../page.module.css";
+// import styles from "../../page.module.css";
 import { createClient } from "@/utils/supabase/client";
 import PostsManager from '@/components/admin/PostsManager';
 import MessageManager from '@/components/admin/MessageManager';
@@ -37,7 +37,7 @@ export default async function AdminPage() {
   // }
 
   return (
-    <div className={styles.page}>
+    <div>
         <br /><br /><br /><br /><br />
       <h1>Manage Posts</h1>
       {/* <h2>Create Post</h2> */}

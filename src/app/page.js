@@ -5,7 +5,7 @@ import JournalArchive from "@/components/journal/JournalArchive";
 import Link from 'next/link';
 import Arc from 'arc';
 import itinerary from "@/data/itinerary.json";
-import styles from "./page.module.css";
+// import styles from "./page.module.css";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -175,7 +175,7 @@ export default async function Home() {
   return (
     <>
       <MapDynamicWrapper {...mapProps}/>
-      <div className={styles.page}>
+      <div>
         <LocalTime timezone="Europe/Amsterdam" />
         <h2>Latest Update ↓</h2>
         <JournalArchive posts={posts || []} />
@@ -185,7 +185,8 @@ export default async function Home() {
           Explore the world with me as I document my travels on my Semester at
           Sea journey.
         </p>
-        <h3 style={{ textAlign: 'center' }}>{`Over the next 100 days, I'll be visiting 11 countries across three continents. `}<Link style={{ color: '#fb6962', textDecoration: 'underline' }} href="/route">Explore the full itinerary.</Link></h3>
+        {/* <h3 style={{ textAlign: 'center' }}>{`Over the next 100 days, I'll be visiting 11 countries across three continents. `}<Link style={{ color: '#fb6962', textDecoration: 'underline' }} href="/route">Explore the full itinerary.</Link></h3> */}
+        <h3>{`Over the next 100 days, I'll be visiting 11 countries across three continents. `}<Link href="/route">Explore the full itinerary.</Link></h3>
         <br /><br />
         {/* <div className={styles.JournalCards}>
         <JournalCard />

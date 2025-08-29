@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import JournalArchive from "@/components/journal/JournalArchive";
-import styles from "../page.module.css";
+// import styles from "../page.module.css";
 
 export const metadata = {
   title: "The Voyage Logs | Sahara at Sea",
@@ -14,7 +14,7 @@ export default async function JournalsPage() {
   const { data: posts, error } = await supabase.from('JournalEntries').select();
 
   return (
-    <div className={styles.page}>
+    <div>
       <h1>The Voyage Logs</h1>
       <JournalArchive posts={posts || []} />
     </div>

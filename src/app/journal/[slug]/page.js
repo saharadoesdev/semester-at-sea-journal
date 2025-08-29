@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from 'next/link';
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -38,12 +38,12 @@ const DetailPage = async ({ params }) => {
       .single();
   
     if (fetchError || !post) {
-      return <div className={styles.page}><br /><h1>Post not found</h1></div>;
+      return <div><br /><h1>Post not found</h1></div>;
     }
 
   return (
     <>
-      <div className={styles.page}>
+      <div>
         <br /><h2>{post.title}</h2>
         {post.image_urls && <img src={post.image_urls[0]} alt={post.title} />}
 

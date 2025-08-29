@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 import JournalArchive from "@/components/journal/JournalArchive";
 import PhotoGallery from "@/components/country/PhotoGallery";
 
@@ -73,7 +73,8 @@ function UnlockedView({ country, posts, photos }) {
   const allImages = posts.flatMap(post => post.image_urls);
 
   return (
-    <div className={styles.page} style={{ paddingTop: "1000px" }}>
+    // <div className={styles.page} style={{ paddingTop: "1000px" }}>
+    <div>
       {/* 1. The Banner */}
       <header className="country-banner" style={{ backgroundImage: `url(${country.my_photo_url || country.stock_photo_url})` }}>
         <h1>{country.name} {country.flag_emoji}</h1>
@@ -85,7 +86,8 @@ function UnlockedView({ country, posts, photos }) {
       </section>
 
       {/* 3. The Journal Entries */}
-      <section className="journal-section" style={{ paddingTop: "1000px" }}>
+      {/* <section className="journal-section" style={{ paddingTop: "1000px" }}> */}
+      <section className="journal-section">
         <h2>Journal Entries from {country.name}</h2>
         {/* <div className="journal-grid"> */}
           {/* {posts && posts.length > 0 ? ( */}
@@ -120,7 +122,8 @@ function LockedView({ country }) {
   const countdown = "Unlocks Soon!";
 
   return (
-    <div className={styles.page} style={{paddingTop: "500px"}}>
+    // <div className={styles.page} style={{paddingTop: "500px"}}>
+    <div>
       {/* 1. The Banner */}
       <header className="country-banner" style={{ backgroundImage: `url(${country.stock_photo_url})` }}>
         <h1>{country.name} {country.flag_emoji}</h1>

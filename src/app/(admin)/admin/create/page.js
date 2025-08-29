@@ -2,7 +2,7 @@ import PostEditor from '@/components/admin/PostEditor';
 import { createClient } from '@/utils/supabase/admin';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from "next/cache";
-import styles from "@/app/page.module.css";
+// import styles from "@/app/page.module.css";
 
 export const metadata = {
   title: "Create Post | Sahara at Sea",
@@ -62,7 +62,7 @@ export default function CreatePostPage() {
   };
 
   return (
-    <div className={styles.page}>
+    <div>
       <h1>Create New Journal Entry</h1>
       <PostEditor action={handleCreatePost} />
     </div>
