@@ -1,0 +1,30 @@
+.archiveContainer {
+  width: 100%;
+}
+
+.controls {
+  margin-bottom: 2rem;
+  /* Add styles for your search/filter bar here */
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem; /* The space between cards */
+  grid-template-columns: 1fr; /* Default to a single column on mobile */
+}
+
+/* --- Media Queries for Responsive Grid --- */
+
+/* For tablets and small desktops */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+}
+
+/* For large desktops */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+  }
+}

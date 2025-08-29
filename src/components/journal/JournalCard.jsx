@@ -23,12 +23,17 @@ const JournalCard = ({ entry }) => {
       })
     : "Date not available";
 
+  const featuredImage =
+    entry.image_urls && entry.image_urls.length > 0 && entry.image_urls[0]
+        ? entry.image_urls[0]
+        : "/ship-icon.svg"; // use ship icon as placeholder image (for now?)
+
   return (
     <article className={styles.card}>
       <Link href={`/journal/${entry.slug || ""}`} className={styles.cardLink}>
         <div className={styles.imageWrapper}>
           <Image
-            src={entry.image_urls[0] || "/ship-icon.svg"} // use ship icon as placeholder image (for now?)
+            src={featuredImage}
             alt={entry.title || "Journal entry image"}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
