@@ -1,0 +1,61 @@
+.mainFooter {
+  background: #0a2342;
+  /* background: #1f3351; this is semester at sea's blue, i like the one above too though */
+  color: #fff;
+  padding: 3rem 1rem 1rem;
+  margin-top: 4rem;
+}
+
+.footerContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footerSection h4 {
+  margin-bottom: 1rem;
+  color: var(--accent-orange);
+}
+
+.footerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerNav a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footerNav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footerBottom {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #334;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.footerBottom p {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Media Query for Desktop Layout --- */
+@media (min-width: 768px) {
+  .footerContent {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
