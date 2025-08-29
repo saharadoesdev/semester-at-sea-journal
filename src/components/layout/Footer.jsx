@@ -13,7 +13,7 @@ export default function Footer() {
           <h4>Navigation</h4>
           <nav className={styles.footerNav}>
             <Link href="/">Home</Link>
-            <Link href="/journal">The Voyage</Link>
+            <Link href="/journal">Journal</Link>
             <Link href="/route">The Route</Link>
             <Link href="/about">About</Link>
           </nav>

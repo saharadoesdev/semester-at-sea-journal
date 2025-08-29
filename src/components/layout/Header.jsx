@@ -16,7 +16,7 @@ export default function Header() {
         </div>
 
         <nav className={styles.desktopNav}>
-          <Link href="/journal">The Voyage</Link>
+          <Link href="/journal">Journal</Link>
           <Link href="/message-wall">Message Wall</Link>
           <Link href="/about">About</Link>
         </nav>
@@ -32,7 +32,7 @@ export default function Header() {
 
       {isNavOpen && (
         <nav className={styles.mobileNav}>
-          <Link href="/journal" onClick={() => setIsNavOpen(false)}>The Voyage</Link>
+          <Link href="/journal" onClick={() => setIsNavOpen(false)}>Journal</Link>
           <Link href="/route" onClick={() => setIsNavOpen(false)}>The Route</Link>
           <Link href="/about" onClick={() => setIsNavOpen(false)}>About</Link>
           <Link href="/message-wall" onClick={() => setIsNavOpen(false)}>Message Wall</Link>
