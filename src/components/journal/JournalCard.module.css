@@ -1,4 +1,4 @@
-.JournalCard h5 {
+/* .JournalCard h5 {
   font-size: 1.25rem;
 }
 
@@ -35,4 +35,74 @@
   align-content: center;
   margin-top: 12px;
   margin-bottom: 4px;
+} */
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Ensures the image corners are rounded */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 60%; /* This creates a 5:3 aspect ratio for the image */
+}
+
+.contentWrapper {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* This makes the content area grow to fill space */
+}
+
+.contentWrapper time {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contentWrapper h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary-blue);
+  line-height: 1.3;
+}
+
+.previewText {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+  flex-grow: 1; /* Pushes the "Read More" link to the bottom */
+}
+
+.readMore {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  align-self: flex-end; /* Aligns it to the right */
+  transition: color 0.2s;
+}
+
+.cardLink:hover .readMore {
+  color: var(--accent-yellow);
 }
