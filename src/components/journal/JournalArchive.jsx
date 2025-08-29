@@ -1,9 +1,11 @@
 "use client";
 import JournalCard from './JournalCard';
 // import styles from "@/app/page.module.css";
+import styles from "./JournalArchive.module.css";
 
-const JournalArchive = (props) => {
-  const posts = props.posts || [];
+const JournalArchive = ({ posts, showControls = false }) => {
+  const allPosts = posts || [];
+
   // const [searchQuery, setSearchQuery] = useState('')
   // const [sortBy, setSortBy] = useState('newest') // 'newest' or 'upvotes'
   // const [flagFilter, setFlagFilter] = useState('');
@@ -24,7 +26,7 @@ const JournalArchive = (props) => {
   // });
 
   return (
-    <>
+    <div className={styles.archiveContainer}>
       {/* <div className="filters">
             <input
                 id="search"
@@ -47,27 +49,26 @@ const JournalArchive = (props) => {
         </div> */}
 
       {/* <div className={styles.JournalCards}> */}
-      <div>
-        {posts && posts.length > 0 ? (
-          [...posts]
-            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))    // display newest first
-            .map((post, index) => (
+
+      {showControls && (
+        <div className={styles.controls}>
+          <p>Search & Filter controls will go here.</p>
+        </div>
+      )}
+
+      <div className={styles.grid}>
+        {allPosts.length > 0 ? (
+          allPosts.map((post) => (
               <JournalCard
                 key={post.id}
                 entry={post}
-                // id={post.id}
-                // title={post.title}
-                // content={post.content}
-                // date={post.display_date}
-                // image={post.image_urls[0]}
-                // slug={post.slug}
               />
             ))
         ) : (
           <h2>{"Looks like the journal entries got lost at sea! 🌊"}</h2>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
