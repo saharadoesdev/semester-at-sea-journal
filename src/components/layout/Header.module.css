@@ -1,37 +1,45 @@
-.main-header {
-  /* background-color: #1f3351; semester at sea's blue */
+.mainHeader {
   background-color: var(--primary-blue);
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15%; /* was 2rem */
   height: 64px;
-  position: fixed;
-  /* top: 0; */
+  position: sticky;
+  top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 100;
 }
 
-.logo { /* i can replace this later when i add an image */
-  font-size: 1.5rem;
-  font-weight: bold;
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-nav {
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.mainHeader nav {
   display: flex;
   gap: 2rem;
 }
 
-nav a {
+.mainHeader nav a {
   /* color: #fff; */
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s;
 }
 
-nav a:hover {
+.mainHeader nav a:hover {
   color: #ffd700; /* gold/yellow on hover */
   /* color: #fb6962; semester at sea's orange, idk if i'll use gold or orange */
   color: var(--accent-orange);
