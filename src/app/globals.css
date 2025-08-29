@@ -32,6 +32,20 @@ body {
 }
 
 a {
-  /* need to modify */
-  text-decoration: underline;
+  color: var(--primary-blue);
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: var(--accent-orange);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
