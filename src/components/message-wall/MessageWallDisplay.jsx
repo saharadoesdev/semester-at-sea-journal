@@ -24,7 +24,8 @@ const MessageWallDisplay = (props) => {
           )}
         </div>
 
-        <div className={styles.MessageCards}>
+        {/* <div className={styles.MessageCards}> */}
+        <div>
           {messages && messages.length > 0 ? (
             [...messages].map((message, index) => (
               <MessageCard
